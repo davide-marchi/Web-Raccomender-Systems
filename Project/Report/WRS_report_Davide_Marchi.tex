@@ -74,43 +74,73 @@ To ensure the quality of the dataset, we performed the following preprocessing s
     \item Ensuring that all users in the test set are also present in the training set.
 \end{itemize}
 
-After cleaning, the dataset contained:
-\begin{itemize}
-    \item Train set size: \textbf{XXX} ratings
-    \item Test set size: \textbf{XXX} ratings
-\end{itemize}
+In terms of dimensions the effect of the cleaning can be summarized in the \autoref{tab:cleaning_effect}.
+
+\begin{table}[H]
+    \centering
+    \resizebox{1\columnwidth}{!}{
+    \begin{tabular}{lll}
+    \textbf{Dataset} & \textbf{Before Cleaning} & \textbf{After Cleaning} \\
+    Train Set & 11000 & 9913 \\
+    Test Set & 3000 & 1822 \\
+    \end{tabular}
+    }
+    \caption{Effect of the Data Cleaning Process}
+    \label{tab:cleaning_effect}
+    \end{table}
 
 \subsection{Exploratory Data Analysis (EDA) and Statistics}
 To gain insights into the dataset, we computed the following statistics:
 
 \begin{itemize}
-    \item Distribution of ratings per user
-    \item Distribution of ratings per item
-    \item Overall rating value distribution
+    \item Distribution of ratings per user in \autoref{fig:ratings_per_user}
+    \item Distribution of ratings per item in \autoref{fig:ratings_per_item}
+    \item Overall rating value distribution in \autoref{fig:rating_value_distribution}
 \end{itemize}
 
-The histograms below visualize these distributions:
-
-\begin{figure}[tbp]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\columnwidth]{Images/ratings_distribution.png}
-    \caption{Distribution of Ratings per User, per Item, and Overall Rating Values}
-    \label{fig:ratings_distribution}
+    \includegraphics[width=0.8\columnwidth]{Images/ratings_per_user.png}
+    \caption{Distribution of Ratings per User}
+    \label{fig:ratings_per_user}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Images/ratings_per_item.png}
+    \caption{Distribution of Ratings per Item}
+    \label{fig:ratings_per_item}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Images/rating_value_distribution.png}
+    \caption{Distribution of Ratings per Vlaue}
+    \label{fig:rating_value_distribution}
+\end{figure}
+
+Also, to show the long-tail distribution of ratings, we plotted the number of ratings per item in \autoref{fig:long_tail}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\columnwidth]{Images/long_tail.png}
+    \caption{Long tail distribution of rating over all the items}
+    \label{fig:long_tail}
 \end{figure}
 
 \subsection{Highly Rated Items}
-To identify popular items, we computed the number of ratings \(\geq 3\) for each item and reported the top 5 most highly rated items:
+To identify popular items, we computed the number of ratings \(\geq 3\) for each item and reported the top 5 most highly rated items in \autoref{tab:top5_items}.
 
-\begin{table}[tbp]
+\begin{table}[H]
 \centering
 \resizebox{1\columnwidth}{!}{
 \begin{tabular}{lll}
-\textbf{Item ID} & \textbf{High Ratings Count} & \textbf{Average Rating} \\
-ITEM1 & XXX & XXX  \\
-ITEM2 & XXX & XXX \\
-ITEM3 & XXX & XXX \\
-ITEM4 & XXX & XXX \\
-ITEM5 & XXX & XXX \\
+\textbf{Item ID} & \textbf{High Ratings Count} & \textbf{Average High Rating} \\
+B0BSGM6CQ9 & 153 & 4.784 \\
+B0BPJ4Q6FJ & 153 & 4.804 \\
+B09857JRP2 & 141 & 4.809 \\
+B0BCK6L7S5 & 120 & 4.583 \\
+B0BTC9YJ2W & 119 & 4.815 \\
 \end{tabular}
 }
 \caption{Top 5 Most Highly Rated Items}
