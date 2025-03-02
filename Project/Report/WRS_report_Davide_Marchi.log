@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  2 MAR 2025 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  2 MAR 2025 17:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -356,7 +356,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 
- <./Images/ratings_distribution.png>] (./WRS_report_Davide_Marchi.bbl)
+ <./Images/ratings_distribution.png>] (./WRS_report_Davide_Marchi.bbl
+Underfull \hbox (badness 3009) in paragraph at lines 5--7
+[]\OT1/ptm/m/n/10 (+20) The pan-das de-vel-op-ment team. 2020.  [][]pandas-
+ []
+
+)
 
 
 
@@ -372,18 +377,18 @@ Package rerunfilecheck Info: File `WRS_report_Davide_Marchi.out' has not changed
  )
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 13008 strings out of 473201
- 208959 string characters out of 5720300
- 657848 words of memory out of 5000000
- 36006 multiletter control sequences out of 15000+600000
- 579664 words of font info for 127 fonts, out of 8000000 for 9000
+ 12993 strings out of 473201
+ 208787 string characters out of 5720300
+ 658857 words of memory out of 5000000
+ 36003 multiletter control sequences out of 15000+600000
+ 577346 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,10n,93p,1153b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WRS_report_Davide_Marchi.pdf (2 pages, 126233 bytes).
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on WRS_report_Davide_Marchi.pdf (2 pages, 116110 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  13 named destinations out of 1000 (max. 500000)
- 33286 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 29190 words of extra memory for PDF output out of 29859 (max. 10000000)
 
