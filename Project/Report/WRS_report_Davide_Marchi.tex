@@ -17,6 +17,8 @@
 \usepackage[hyperref]{acl2021}
 \usepackage{times}
 \usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{float}
 \renewcommand{\UrlFont}{\ttfamily\small}
 
 % This is not strictly necessary, and may be commented out,
@@ -53,15 +55,79 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This is the report of the project fort the Web Recommender System course held at the University of Copenhagen.
+This is the report of the project for the Web Recommender System course held at the University of Copenhagen.
 \end{abstract}
 
 \section{Week 6 [Feb 3 - Feb 9]: Familiarize Yourself with the Datasets}
 
+\subsection{Dataset Description and Import}
+The dataset used in this project is the ``Musical Instruments'' dataset from the Amazon Review data 2023 (5-core subset). The dataset consists of 14,000 item ratings from nearly 900 users on approximately 500 items. The data is split into training and test sets, with 80\% of the data allocated for training (``train.tsv'') and 20\% for testing (``test.tsv'').
 
+The dataset was imported using the Python library \texttt{pandas} and the \texttt{read\_csv} function\cite{Aho:72}.
+
+\subsection{Data Cleaning and Preprocessing}
+To ensure the quality of the dataset, we performed the following preprocessing steps:
+
+\begin{itemize}
+    \item Removal of missing values (entries with missing user ID, item ID, or rating).
+    \item Deduplication by keeping the most recent rating when a user rated the same item multiple times.
+    \item Ensuring that all users in the test set are also present in the training set.
+\end{itemize}
+
+After cleaning, the dataset contained:
+\begin{itemize}
+    \item Train set size: \textbf{XXX} ratings
+    \item Test set size: \textbf{XXX} ratings
+\end{itemize}
+
+\subsection{Exploratory Data Analysis (EDA) and Statistics}
+To gain insights into the dataset, we computed the following statistics:
+
+\begin{itemize}
+    \item Distribution of ratings per user
+    \item Distribution of ratings per item
+    \item Overall rating value distribution
+\end{itemize}
+
+The histograms below visualize these distributions:
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Images/ratings_distribution.png}
+    \caption{Distribution of Ratings per User, per Item, and Overall Rating Values}
+    \label{fig:ratings_distribution}
+\end{figure}
+
+\subsection{Highly Rated Items}
+To identify popular items, we computed the number of ratings \(\geq 3\) for each item and reported the top 5 most highly rated items:
+
+\begin{table}[tbp]
+\centering
+\resizebox{1\columnwidth}{!}{
+\begin{tabular}{lll}
+\textbf{Item ID} & \textbf{High Ratings Count} & \textbf{Average Rating} \\
+ITEM1 & XXX & XXX  \\
+ITEM2 & XXX & XXX \\
+ITEM3 & XXX & XXX \\
+ITEM4 & XXX & XXX \\
+ITEM5 & XXX & XXX \\
+\end{tabular}
+}
+\caption{Top 5 Most Highly Rated Items}
+\label{tab:top5_items}
+\end{table}
+
+\subsection{Discussion}
+The dataset exhibits common characteristics of user-item interactions:
+
+\begin{itemize}
+    \item There is a long-tail distribution where a small number of items receive most of the ratings, while many items have very few ratings.
+    \item The majority of users have rated only a few items, which can lead to sparsity issues in collaborative filtering approaches.
+    \item Certain items dominate the high-rated category, which may bias recommendation systems.
+\end{itemize}
 
 \bibliographystyle{acl_natbib}
-\bibliography{anthology,acl2021}
+\bibliography{acl2021}
 
 %\appendix
 
