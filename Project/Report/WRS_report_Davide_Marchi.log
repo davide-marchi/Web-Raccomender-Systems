@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  2 MAR 2025 18:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  2 MAR 2025 19:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -375,6 +375,39 @@ Package pdftex.def Info: Images/long_tail.png  used on input line 126.
 (pdftex.def)             Requested size: 219.08612pt x 108.71251pt.
 
 
+
+Underfull \hbox (badness 6268) in paragraph at lines 172--173
+[]\OT1/ptm/b/n/10.95 (+20) User-based k-Nearest Neigh-bors with
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 173--174
+\OT1/ptm/m/n/10.95 (+20) la-tent fac-tor model that de-com-poses the
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 173--174
+\OT1/ptm/m/n/10.95 (+20) user-item in-ter-ac-tion ma-trix into lower-
+ []
+
+
+
+[2 <./Images/rating_value_distribution.png> <./Images/long_tail.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 206.
+
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 211.
+(c:/texlive/2024/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 211.
+
+Overfull \hbox (216.78152pt too wide) in paragraph at lines 209--215
+ [][] 
+ []
+
 (./WRS_report_Davide_Marchi.bbl
 Underfull \hbox (badness 3009) in paragraph at lines 5--7
 []\OT1/ptm/m/n/10 (+20) The pan-das de-vel-op-ment team. 2020.  [][]pandas-
@@ -382,7 +415,11 @@ Underfull \hbox (badness 3009) in paragraph at lines 5--7
 
 )
 
-[2 <./Images/rating_value_distribution.png> <./Images/long_tail.png>] (./WRS_report_Davide_Marchi.aux)
+
+
+[3
+
+] (./WRS_report_Davide_Marchi.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -392,18 +429,18 @@ Package rerunfilecheck Info: File `WRS_report_Davide_Marchi.out' has not changed
  )
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 13026 strings out of 473201
- 209669 string characters out of 5720300
- 655090 words of memory out of 5000000
- 36030 multiletter control sequences out of 15000+600000
- 577399 words of font info for 120 fonts, out of 8000000 for 9000
+ 13103 strings out of 473201
+ 210592 string characters out of 5720300
+ 655163 words of memory out of 5000000
+ 36051 multiletter control sequences out of 15000+600000
+ 579232 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,10n,93p,1153b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on WRS_report_Davide_Marchi.pdf (2 pages, 165643 bytes).
+Output written on WRS_report_Davide_Marchi.pdf (3 pages, 171778 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
+ 96 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
  29205 words of extra memory for PDF output out of 29859 (max. 10000000)
 

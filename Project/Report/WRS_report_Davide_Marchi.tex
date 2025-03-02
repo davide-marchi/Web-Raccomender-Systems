@@ -156,6 +156,70 @@ The dataset exhibits common characteristics of user-item interactions:
     \item Certain items dominate the high-rated category, which may bias recommendation systems.
 \end{itemize}
 
+\section{Week 7 [Feb 10 - Feb 16]: Collaborative Filtering Recommender System}
+
+\subsection{Top Popular (TopPop) Recommender System}
+
+As a baseline, I first implemented the \textbf{Top Popular (TopPop) recommender system}. This model recommends the most popular items based on the number of ``high'' ratings (ratings $\geq$ 3) in the training set. I computed the frequency of high ratings per item and selected the top-k items as recommendations for all users.
+
+While computationally inexpensive, this method lacks personalization since it does not consider individual user preferences.
+
+\subsection{Collaborative Filtering Models}
+
+I then used to Scikit-Surprise library to be able to compare it with one neighborhood-based model and one latent factor model. The ones I chose are:
+
+\begin{itemize}
+    \item \textbf{User-based k-Nearest Neighbors with Means (KNNWithMeans)}: A neighborhood-based approach that identifies similar users based on their rating history.
+    \item \textbf{Singular Value Decomposition (SVD)}: A latent factor model that decomposes the user-item interaction matrix into lower-dimensional representations.
+\end{itemize}
+
+\subsection{Hyperparameter Tuning and Evaluation}
+
+To optimize both models and finde the best hyperparameters, I performed a Grid Search with \textbf{5-fold cross-validation} on the training set. The parameters I tuned included:
+
+\begin{itemize}
+    \item \textbf{KNNWithMeans}
+    \begin{itemize}
+        \item \textbf{k}: [5, 10, 20, 30, 40, 50, 70, 100]
+        \item \textbf{sim\_options}:
+        \begin{itemize}
+            \item \textbf{name}: ['cosine', 'msd']
+            \item \textbf{user\_based}: [True]
+        \end{itemize}
+            
+    \end{itemize}
+    \item \textbf{SVD}
+    \begin{itemize}
+        \item \textbf{n\_factors}: [3, 5, 10, 20, 50, 100]
+        \item \textbf{n\_epochs}: [5, 10, 20, 50, 100]
+    \end{itemize}
+\end{itemize}
+
+The evaluation metric chosen was \textbf{Root Mean Square Error (RMSE)}. RMSE penalizes larger errors more than smaller ones, making it a good measure to
+capture the overall predictive accuracy of our recommendation models.
+Lower RMSE indicates that the model predictions are closer to the actual ratings.
+
+\subsection{Results and Discussion}
+
+The best hyperparameters for each model can be found in \autoref{tab:best_hyperparameters}.
+
+\begin{table}[]
+\centering
+%\resizebox{1\columnwidth}{!}{
+\begin{tabular}{lll}
+\textbf{Model} & \textbf{Best Hyperparameters} & \textbf{Best RMSE} \\
+KNNWithMeans & {'k': 70, 'sim\_options': \{'name': 'cosine', 'user\_based': True\}} & 0.9113 \\
+SVD & {'n\_factors': 10, 'n\_epochs': 20} & 0.8445 \\
+\end{tabular}
+%}
+\caption{Best Hyperparameters and RMSE for Each Model}
+\label{tab:best_hyperparameters}
+\end{table}
+
+The SVD model, despite it's low dimensional latent space, outperformed the KNNWithMeans model with a lower RMSE of 0.8445 compared to 0.9113. This indicates that the latent factor model is better at capturing the underlying patterns in the user-item interaction matrix.
+
+After that both models have been trained again on the whole training set, to make sure that no data available for training is left beahind befor the evaluation on the test set.
+
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
 
