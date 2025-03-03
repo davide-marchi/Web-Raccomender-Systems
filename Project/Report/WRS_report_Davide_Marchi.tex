@@ -327,15 +327,22 @@ The results of the computation of these metrics are shown in \autoref{tab:evalua
 \end{itemize}
 
 The evaluation results show an interesting (but expected) trade-off:
-The \textbf{TopPop model} is simple but performs surprisingly well, especially in terms of hit rate and ranking metrics. However, it lacks personalization.
-The \textbf{kNN model} achieves the highest coverage, meaning it suggests a wider variety of items, which could be useful for expanding user interest.
-The \textbf{SVD model} despite achieving the lowest RMSE, performed worse than expected in ranking-based evaluation, possibly due to the sparsity of the dataset.
+
+\begin{itemize}
+    \item The \textbf{TopPop model} is simple but performs surprisingly well, especially in terms of hit rate and ranking metrics. However, it completely lacks of any sort of personalization.
+    \item The \textbf{kNN model} achieves the highest coverage, meaning it suggests a wider variety of items, which could be useful for expanding user interest.
+    \item The \textbf{SVD model} despite achieving the lowest RMSE, performed worse than expected in ranking-based evaluation, possibly due to the sparsity of the dataset.
+\end{itemize}
 
 \subsection{What can be concluded}
 
 These results suggest that, while collaborative filtering methods are typically expected to perform well, the characteristics of the dataset (such as sparsity and rating distribution) play a significant role in determining effectiveness.
 
-At this point, there is no clear winner, as the best model depends on the specific use case and the \textbf{trade-offs} between accuracy, diversity, and coverage.
+At this point, there is no clear winner, as the best model depends on the specific use case and the \textbf{trade-offs} between accuracy and coverage.
+
+In a case where the only important thing is precision, \textbf{TopPop} is undoubtedly the best choice here. But the real hard yet rewarding thing to obtain is a wide coverage capable of recommending (even if with less confidence than TopPop) some niche items reviewed just by few users. In this regard, the higher coverage of \textbf{KNNWithMeans} proves to be very useful.
+
+This approach also helps to spread the upcoming reviews, while \textbf{TopPop} would just end up making the popular items even more popular and the less common items even less common in proportion.
 
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
