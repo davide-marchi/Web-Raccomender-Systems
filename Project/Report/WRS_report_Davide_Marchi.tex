@@ -55,10 +55,12 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This is the report of the project for the Web Recommender System course held at the University of Copenhagen.
+This report presents the development of the project for the Web Recommender System course held at the University of Copenhagen.
 \end{abstract}
 
 \section{Week 6 [Feb 3 - Feb 9]: Familiarize Yourself with the Datasets}
+
+This week focused on understanding the dataset and preparing it for recommendation tasks. The goal was to clean the data, explore its properties, and extract key statistics to gain insights into user-item interactions. This preprocessing step was essential to ensure data quality for later modeling.
 
 \subsection{Dataset Description and Import}
 The dataset used in this project is the ``Musical Instruments'' dataset from the Amazon Review data 2023 (5-core subset). The dataset consists of 14,000 item ratings from nearly 900 users on approximately 500 items. The data is split into training and test sets, with 80\% of the data allocated for training (``train.tsv'') and 20\% for testing (``test.tsv'').
@@ -164,6 +166,8 @@ The dataset exhibits common characteristics of user-item interactions:
 
 \section{Week 7 [Feb 10 - Feb 16]: Collaborative Filtering Recommender System}
 
+This week focused on implementing collaborative filtering recommender systems. The goal was to build models that predict user preferences based on past ratings, compare different approaches, and optimize their performance through hyperparameter tuning. These models serve as the foundation for generating personalized recommendations.
+
 \subsection{Top Popular (TopPop) Recommender System}
 
 As a baseline, I first implemented the \textbf{Top Popular (TopPop) recommender system}. This model recommends the most popular items based on the number of ``high'' ratings (ratings $\geq$ 3) in the training set. I computed the frequency of high ratings per item and selected the top-k items as recommendations for all users.
@@ -259,12 +263,37 @@ While RMSE is useful for evaluating rating prediction accuracy, it has some limi
 
 To assess the quality of the generated recommendations, the models were evaluated using the following metrics:
 
+
 \begin{itemize}
-    \item \textbf{Hit Rate}: Measures how often a relevant item appears in the top-k recommendations for a user.
-    \item \textbf{Precision@k}: The proportion of recommended items in the top-k list that are relevant.
-    \item \textbf{Mean Average Precision (MAP@k)}: Evaluates ranking quality by averaging precision at each relevant item position.
-    \item \textbf{Mean Reciprocal Rank (MRR@k)}: Focuses on the rank of the first relevant item.
-    \item \textbf{Coverage}: Measures the diversity of recommended items across all users.
+    \item \textbf{Hit Rate}: Measures how often at least one relevant item appears in the top-k recommendations.
+    \begin{itemize}
+        \item \textbf{Advantages:} Simple, easy to interpret.
+        \item \textbf{Disadvantages:} Doesn't consider ranking or multiple relevant items.
+    \end{itemize}
+
+    \item \textbf{Precision@k}: Proportion of recommended items in the top-k list that are relevant.
+    \begin{itemize}
+        \item \textbf{Advantages:} Direct measure of recommendation quality.
+        \item \textbf{Disadvantages:} Ignores total relevant items available.
+    \end{itemize}
+
+    \item \textbf{MAP@k}: Averages precision at positions of relevant items, rewarding good ranking.
+    \begin{itemize}
+        \item \textbf{Advantages:} Considers ranking order.
+        \item \textbf{Disadvantages:} Sensitive to users with few relevant items.
+    \end{itemize}
+
+    \item \textbf{MRR@k}: Focuses on the rank of the first relevant item. Computed as one divided by its rank.
+    \begin{itemize}
+        \item \textbf{Advantages:} Rewards early relevant recommendations.
+        \item \textbf{Disadvantages:} Ignores additional relevant items.
+    \end{itemize}
+
+    \item \textbf{Coverage}: Proportion of unique items recommended at least once.
+    \begin{itemize}
+        \item \textbf{Advantages:} Indicates diversity in recommendations.
+        \item \textbf{Disadvantages:} High coverage doesn’t mean better relevance.
+    \end{itemize}
 \end{itemize}
 
 The results of the computation of these metrics are shown in \autoref{tab:evaluation_metrics}.
@@ -302,7 +331,7 @@ The \textbf{SVD model} despite achieving the lowest RMSE, performed worse than e
 
 These results suggest that, while collaborative filtering methods are typically expected to perform well, the characteristics of the dataset (such as sparsity and rating distribution) play a significant role in determining effectiveness.
 
-
+In the end we do not have a clear winner, as the best model depends on the specific use case and the trade-offs between accuracy, diversity, and coverage.
 
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}

@@ -188,11 +188,6 @@ INPUT ./Images/ratings_per_item.png
 INPUT ./Images/ratings_per_item.png
 INPUT ./Images/ratings_per_item.png
 INPUT ./Images/ratings_per_item.png
-INPUT ./Images/rating_value_distribution.png
-INPUT ./Images/rating_value_distribution.png
-INPUT ./Images/rating_value_distribution.png
-INPUT ./Images/rating_value_distribution.png
-INPUT ./Images/rating_value_distribution.png
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -210,6 +205,11 @@ INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
+INPUT ./Images/rating_value_distribution.png
+INPUT ./Images/rating_value_distribution.png
+INPUT ./Images/rating_value_distribution.png
+INPUT ./Images/rating_value_distribution.png
+INPUT ./Images/rating_value_distribution.png
 INPUT ./Images/long_tail.png
 INPUT ./Images/long_tail.png
 INPUT ./Images/long_tail.png
