@@ -94,7 +94,7 @@ In terms of dimensions the effect of the cleaning can be summarized in the \auto
     \label{tab:cleaning_effect}
     \end{table}
 
-\subsection{Exploratory Data Analysis (EDA) and Statistics}
+\subsection{Exploratory Data Analysis and Statistics}
 To gain insights into the dataset, I computed the following statistics:
 
 \begin{itemize}
@@ -141,13 +141,13 @@ To identify popular items, I computed the number of ratings \(\geq 3\) for each 
 \resizebox{1\columnwidth}{!}{
 \begin{tabular}{lll}
 \hline
-\textbf{Item ID} & \textbf{High Ratings Count} & \textbf{Average High Rating} \\
+\textbf{Item ID} & \textbf{High Ratings} & \textbf{Average Rating} \\
 \hline
-B0BSGM6CQ9 & 153 & 4.784 \\
-B0BPJ4Q6FJ & 153 & 4.804 \\
-B09857JRP2 & 141 & 4.809 \\
-B0BCK6L7S5 & 120 & 4.583 \\
-B0BTC9YJ2W & 119 & 4.815 \\
+B0BSGM6CQ9 & 153 & 4.6899 \\
+B0BPJ4Q6FJ & 153 & 4.7372 \\
+B09857JRP2 & 141 & 4.7692 \\
+B0BCK6L7S5 & 120 & 4.3030 \\
+B0BTC9YJ2W & 119 & 4.7377 \\
 \hline
 \end{tabular}
 }
@@ -160,8 +160,9 @@ The dataset exhibits common characteristics of user-item interactions:
 
 \begin{itemize}
     \item There is a long-tail distribution where a small number of items receive most of the ratings, while many items have very few ratings.
-    \item The majority of users have rated only a few items, which can lead to sparsity issues in collaborative filtering approaches.
-    \item Certain items dominate the high-rated category, which may bias recommendation systems.
+    \item The majority of users have rated only a very small percentage of the available items, which can lead to sparsity issues in collaborative filtering approaches.
+    \item Few items dominate the high-rated category, which may bias recommendation systems and favor a TopPop approach.
+    \item Most ratings are 5/5, likely because users tend to rate items they like more than those they dislike. This results in a highly imbalanced dataset for the task of predicting ratings.
 \end{itemize}
 
 \section{Week 7 [Feb 10 - Feb 16]: Collaborative Filtering Recommender System}
