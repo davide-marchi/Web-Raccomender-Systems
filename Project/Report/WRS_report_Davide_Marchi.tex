@@ -177,7 +177,7 @@ While computationally inexpensive, this method lacks personalization since it do
 
 \subsection{Collaborative Filtering Models}
 
-I then used to Scikit-Surprise library\cite{surprise} to be able to compare it with one neighborhood-based model and one latent factor model. The ones I chose are:
+I then used the Scikit-Surprise library\cite{surprise} to be able to compare TopPop with one neighborhood-based model and one latent factor model. The ones I chose are:
 
 \begin{itemize}
     \item \textbf{User-based k-Nearest Neighbors with Means (KNNWithMeans)}: A neighborhood-based approach that identifies similar users based on their rating history.
@@ -189,13 +189,12 @@ I then used to Scikit-Surprise library\cite{surprise} to be able to compare it w
 To optimize both models and finde the best hyperparameters, I performed a Grid Search with \textbf{5-fold cross-validation} on the training set. The parameters I tuned included:
 
 \begin{itemize}
-    \item \textbf{KNNWithMeans}
+    \item \textbf{User-based KNNWithMeans}
     \begin{itemize}
         \item \textbf{k}: [5, 10, 20, 30, 40, 50, 70, 100]
         \item \textbf{sim\_options}:
         \begin{itemize}
             \item \textbf{name}: ['cosine', 'msd']
-            \item \textbf{user\_based}: [True]
         \end{itemize}
             
     \end{itemize}
@@ -221,7 +220,7 @@ The best hyperparameters for each model can be found in \autoref{tab:best_hyperp
 \hline
 \textbf{Model} & \textbf{Best Hyperparameters} & \textbf{Best RMSE} \\
 \hline
-KNNWithMeans & {'k': 70, 'sim\_options': \{'name': 'cosine', 'user\_based': True\}} & 0.9100 \\
+KNNWithMeans & {'k': 70, 'sim\_options': \{'name': 'cosine'\}} & 0.9100 \\
 SVD & {'n\_factors': 5, 'n\_epochs': 20} & 0.8440 \\
 \hline
 \end{tabular}
