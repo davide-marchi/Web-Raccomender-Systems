@@ -80,9 +80,12 @@ In terms of dimensions the effect of the cleaning can be summarized in the \auto
     \centering
     \resizebox{1\columnwidth}{!}{
     \begin{tabular}{lll}
+    \hline
     \textbf{Dataset} & \textbf{Before Cleaning} & \textbf{After Cleaning} \\
+    \hline
     Train Set & 11000 & 9913 \\
     Test Set & 3000 & 1822 \\
+    \hline
     \end{tabular}
     }
     \caption{Effect of the Data Cleaning Process}
@@ -135,12 +138,15 @@ To identify popular items, we computed the number of ratings \(\geq 3\) for each
 \centering
 \resizebox{1\columnwidth}{!}{
 \begin{tabular}{lll}
+\hline
 \textbf{Item ID} & \textbf{High Ratings Count} & \textbf{Average High Rating} \\
+\hline
 B0BSGM6CQ9 & 153 & 4.784 \\
 B0BPJ4Q6FJ & 153 & 4.804 \\
 B09857JRP2 & 141 & 4.809 \\
 B0BCK6L7S5 & 120 & 4.583 \\
 B0BTC9YJ2W & 119 & 4.815 \\
+\hline
 \end{tabular}
 }
 \caption{Top 5 Most Highly Rated Items}
@@ -203,15 +209,18 @@ Lower RMSE indicates that the model predictions are closer to the actual ratings
 
 The best hyperparameters for each model can be found in \autoref{tab:best_hyperparameters}.
 
-\begin{table}[]
+\begin{table}[H]
 \centering
-%\resizebox{1\columnwidth}{!}{
+\resizebox{1\columnwidth}{!}{
 \begin{tabular}{lll}
+\hline
 \textbf{Model} & \textbf{Best Hyperparameters} & \textbf{Best RMSE} \\
+\hline
 KNNWithMeans & {'k': 70, 'sim\_options': \{'name': 'cosine', 'user\_based': True\}} & 0.9113 \\
 SVD & {'n\_factors': 10, 'n\_epochs': 20} & 0.8445 \\
+\hline
 \end{tabular}
-%}
+}
 \caption{Best Hyperparameters and RMSE for Each Model}
 \label{tab:best_hyperparameters}
 \end{table}
@@ -219,6 +228,81 @@ SVD & {'n\_factors': 10, 'n\_epochs': 20} & 0.8445 \\
 The SVD model, despite it's low dimensional latent space, outperformed the KNNWithMeans model with a lower RMSE of 0.8445 compared to 0.9113. This indicates that the latent factor model is better at capturing the underlying patterns in the user-item interaction matrix.
 
 After that both models have been trained again on the whole training set, to make sure that no data available for training is left beahind befor the evaluation on the test set.
+
+\section{Week 8 [Feb 17 - Feb 23]: Evaluation of Recommender Systems}
+
+This week focused on evaluating the performance of the collaborative filtering models implemented in Week 7. The evaluation aimed to measure both the accuracy of rating predictions and the effectiveness of recommendations.
+
+\subsection{RMSE Evaluation}
+
+The first step in evaluating the models was measuring the \textbf{Root Mean Square Error (RMSE)} on the test set. RMSE quantifies how close the predicted ratings are to the actual ratings, with lower values indicating better accuracy. The trained models were tested on the preprocessed test data, and their RMSE values were computed and are shown in \autoref{tab:RMSE_comparison}.
+
+\begin{table}[H]
+    \centering
+    \resizebox{1\columnwidth}{!}{
+        \begin{tabular}{lll}
+            \hline
+            \textbf{Model} & \textbf{Validation RMSE} & \textbf{Test RMSE} \\
+            \hline
+            KNNWithMeans & 0.9113 & 1.0619 \\
+            SVD & 0.8445 & 0.9796 \\
+            \hline
+        \end{tabular}
+    }
+    \caption{RMSE Comparison on Test Set}
+    \label{tab:RMSE_comparison}
+\end{table}
+
+While RMSE is useful for evaluating rating prediction accuracy, it has some limitations. It does not consider ranking quality and does not directly reflect recommendation usefulness. For this reason, additional ranking-based metrics were computed.
+
+\subsection{Ranking-based Evaluation Metrics}
+
+To assess the quality of the generated recommendations, the models were evaluated using the following metrics:
+
+\begin{itemize}
+    \item \textbf{Hit Rate}: Measures how often a relevant item appears in the top-k recommendations for a user.
+    \item \textbf{Precision@k}: The proportion of recommended items in the top-k list that are relevant.
+    \item \textbf{Mean Average Precision (MAP@k)}: Evaluates ranking quality by averaging precision at each relevant item position.
+    \item \textbf{Mean Reciprocal Rank (MRR@k)}: Focuses on the rank of the first relevant item.
+    \item \textbf{Coverage}: Measures the diversity of recommended items across all users.
+\end{itemize}
+
+The results of the computation of these metrics are shown in \autoref{tab:evaluation_metrics}.
+
+\begin{table}[H]
+    \centering
+    \resizebox{1\columnwidth}{!}{
+        \begin{tabular}{llllll}
+            \hline
+            \textbf{Model} & \textbf{Hit Rate} & \textbf{Precision@10} & \textbf{MAP@10} & \textbf{MRR@10} & \textbf{Coverage} \\
+            \hline
+            KNNWithMeans & 0.1092 & 0.0117 & 0.0318 & 0.0314 & 0.5874 \\
+            SVD & 0.0850 & 0.0095 & 0.0272 & 0.0281 & 0.1552 \\
+            TopPop & 0.2573 & 0.0325 & 0.1144 & 0.1187 & 0.0196 \\
+            \hline
+        \end{tabular}
+    }
+    \caption{Evaluation Metrics for Top-10 Recommendations}
+    \label{tab:evaluation_metrics}
+\end{table}
+
+\subsection{Results and Discussion}
+
+\begin{itemize}
+    \item \textbf{Hit Rate:} Surprisingly, the \textbf{TopPop model} achieved the highest hit rate, likely because popular items frequently appear in the test set.
+    \item \textbf{Precision@10:} The TopPop model outperformed the collaborative filtering methods in precision as well, suggesting that highly rated items tend to be good general recommendations.
+    \item \textbf{MAP@10 and MRR@10:} TopPop also performed best in these ranking-based metrics, showing that the most popular items are often relevant.
+    \item \textbf{Coverage:} The \textbf{kNN model} had the highest coverage (58.7\%), indicating that it provided more diverse recommendations, while SVD had lower coverage. The TopPop model had the lowest coverage, meaning it recommended only a small subset of items.
+\end{itemize}
+
+The evaluation results show an interesting (but expected) trade-off:
+The \textbf{TopPop model} is simple but performs surprisingly well, especially in terms of hit rate and ranking metrics. However, it lacks personalization.
+The \textbf{kNN model} achieves the highest coverage, meaning it suggests a wider variety of items, which could be useful for expanding user interest.
+The \textbf{SVD model} despite achieving the lowest RMSE, performed worse than expected in ranking-based evaluation, possibly due to the sparsity of the dataset.
+
+These results suggest that, while collaborative filtering methods are typically expected to perform well, the characteristics of the dataset (such as sparsity and rating distribution) play a significant role in determining effectiveness.
+
+
 
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
