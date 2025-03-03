@@ -239,7 +239,9 @@ This week focused on evaluating the performance of the collaborative filtering m
 
 \subsection{RMSE Evaluation}
 
-The first step in evaluating the models was measuring the \textbf{Root Mean Square Error (RMSE)} on the test set. RMSE quantifies how close the predicted ratings are to the actual ratings, with lower values indicating better accuracy. The trained models were tested on the preprocessed test data, and their RMSE values were computed and are shown in \autoref{tab:RMSE_comparison}.
+The first step in evaluating the models was measuring the \textbf{Root Mean Square Error (RMSE)} on the test set. RMSE quantifies how close the predicted ratings are to the actual ratings.
+
+The trained models were tested on the preprocessed test data, and their RMSE values were computed and are shown in \autoref{tab:RMSE_comparison}.
 
 \begin{table}[H]
     \centering
@@ -274,7 +276,7 @@ To assess the quality of the generated recommendations, the models were evaluate
     \item \textbf{Precision@k}: Proportion of recommended items in the top-k list that are relevant.
     \begin{itemize}
         \item \textbf{Advantages:} Direct measure of recommendation quality.
-        \item \textbf{Disadvantages:} Ignores total relevant items available.
+        \item \textbf{Disadvantages:} Ignores total relevant items available and ranking order.
     \end{itemize}
 
     \item \textbf{MAP@k}: Averages precision at positions of relevant items, rewarding good ranking.
@@ -318,7 +320,7 @@ The results of the computation of these metrics are shown in \autoref{tab:evalua
 \subsection{Results and Discussion}
 
 \begin{itemize}
-    \item \textbf{Hit Rate:} Surprisingly, the \textbf{TopPop model} achieved the highest hit rate, likely because popular items frequently appear in the test set.
+    \item \textbf{Hit Rate:} Unsurprisingly, the \textbf{TopPop model} achieved the highest hit rate, likely because popular items frequently appear in the test set.
     \item \textbf{Precision@10:} The TopPop model outperformed the collaborative filtering methods in precision as well, suggesting that highly rated items tend to be good general recommendations.
     \item \textbf{MAP@10 and MRR@10:} TopPop also performed best in these ranking-based metrics, showing that the most popular items are often relevant.
     \item \textbf{Coverage:} The \textbf{kNN model} had the highest coverage (58.7\%), indicating that it provided more diverse recommendations, while SVD had lower coverage. The TopPop model had the lowest coverage, meaning it recommended only a small subset of items.
@@ -329,9 +331,11 @@ The \textbf{TopPop model} is simple but performs surprisingly well, especially i
 The \textbf{kNN model} achieves the highest coverage, meaning it suggests a wider variety of items, which could be useful for expanding user interest.
 The \textbf{SVD model} despite achieving the lowest RMSE, performed worse than expected in ranking-based evaluation, possibly due to the sparsity of the dataset.
 
+\subsection{What can be concluded}
+
 These results suggest that, while collaborative filtering methods are typically expected to perform well, the characteristics of the dataset (such as sparsity and rating distribution) play a significant role in determining effectiveness.
 
-In the end we do not have a clear winner, as the best model depends on the specific use case and the trade-offs between accuracy, diversity, and coverage.
+At this point, there is no clear winner, as the best model depends on the specific use case and the \textbf{trade-offs} between accuracy, diversity, and coverage.
 
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
