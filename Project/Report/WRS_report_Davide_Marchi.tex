@@ -55,7 +55,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This report presents the development of the project for the Web Recommender System course held at the University of Copenhagen.
+This report presents the development process of the project for the Web Recommender Systems course at the University of Copenhagen.
 \end{abstract}
 
 \section{Week 6 [Feb 3 - Feb 9]: Familiarize Yourself with the Datasets}
@@ -120,7 +120,7 @@ To gain insights into the dataset, I computed the following statistics:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\columnwidth]{Images/rating_value_distribution.png}
-    \caption{Distribution of Ratings per Vlaue}
+    \caption{Distribution of Ratings per Value}
     \label{fig:rating_value_distribution}
 \end{figure}
 
@@ -231,7 +231,7 @@ SVD & {'n\_factors': 10, 'n\_epochs': 20} & 0.8445 \\
 
 The SVD model, despite it's low dimensional latent space, outperformed the KNNWithMeans model with a lower RMSE of 0.8445 compared to 0.9113. This indicates that the latent factor model is better at capturing the underlying patterns in the user-item interaction matrix.
 
-After that both models have been trained again on the whole training set, to make sure that no data available for training is left beahind befor the evaluation on the test set.
+After that, both models were trained again on the whole training set to ensure that no data available for training was left behind before the evaluation on the test set.
 
 \section{Week 8 [Feb 17 - Feb 23]: Evaluation of Recommender Systems}
 
