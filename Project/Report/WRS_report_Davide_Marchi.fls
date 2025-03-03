@@ -200,6 +200,8 @@ INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
