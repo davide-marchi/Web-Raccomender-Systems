@@ -7,48 +7,45 @@ Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acl2021.bib
-Warning--entry type for "pandas" isn't style-file defined
---line 1 of file acl2021.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 1 entry,
+You've used 2 entries,
             3571 wiz_defined-function locations,
-            699 strings with 5635 characters,
-and the built_in function-call counts, 458 in all, are:
-= -- 39
-> -- 12
-< -- 1
-+ -- 4
-- -- 3
-* -- 22
-:= -- 105
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 6
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 25
-empty$ -- 33
-format.name$ -- 4
-if$ -- 92
+            709 strings with 5812 characters,
+and the built_in function-call counts, 1022 in all, are:
+= -- 89
+> -- 25
+< -- 2
++ -- 8
+- -- 6
+* -- 54
+:= -- 193
+add.period$ -- 7
+call.type$ -- 2
+change.case$ -- 12
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 65
+empty$ -- 84
+format.name$ -- 8
+if$ -- 219
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 4
-newline$ -- 8
-num.names$ -- 4
-pop$ -- 11
+missing$ -- 12
+newline$ -- 13
+num.names$ -- 8
+pop$ -- 23
 preamble$ -- 1
-purify$ -- 5
+purify$ -- 10
 quote$ -- 0
-skip$ -- 26
+skip$ -- 59
 stack$ -- 0
-substring$ -- 11
-swap$ -- 9
+substring$ -- 34
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 9
+type$ -- 18
 warning$ -- 0
-while$ -- 3
+while$ -- 7
 width$ -- 0
-write$ -- 13
-(There was 1 warning)
+write$ -- 26
