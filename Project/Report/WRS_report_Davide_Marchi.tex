@@ -74,11 +74,11 @@ The dataset used in this project is the ``Musical Instruments'' dataset from the
 \subsection{Data Cleaning and Preprocessing}
 To ensure the quality of the dataset, I performed the following preprocessing steps:
 
-\begin{itemize}
-    \item Removal of missing values (entries with missing user ID, item ID, or rating).
-    \item Deduplication by keeping the most recent rating when a user rated the same item multiple times.
-    \item Ensuring that all users in the test set are also present in the training set.
-\end{itemize}
+\begin{enumerate}
+    \item Removal of missing values (entries with missing user ID, item ID, or rating). \\ \textcolor{red}{\textbf{Outcome:} 0 reviews removed.}
+    \item Deduplication by keeping the most recent rating when a user rated the same item multiple times. \\ \textcolor{red}{\textbf{Outcome:} 1087 reviews removed from the training set and 1178 from test set.}
+    \item Ensuring that all users in the test set are also present in the training set. \\ \textcolor{red}{\textbf{Outcome:} 0 users removed.}
+\end{enumerate}
 
 In terms of dimensions the effect of the cleaning can be summarized in the \autoref{tab:cleaning_effect}.
 
