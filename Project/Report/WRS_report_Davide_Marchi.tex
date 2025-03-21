@@ -182,7 +182,7 @@ The dataset exhibits common characteristics of user-item interactions:
 
 \begin{itemize}
     \item There is a long-tail distribution where a small number of items receive most of the ratings, while many items have very few ratings.
-    \item The majority of users have rated only a very small percentage of the available items, which can lead to sparsity issues in collaborative filtering approaches.
+    \item The majority of users have rated only a very small percentage of the available items, which can lead to sparsity issues in collaborative filtering approaches. \textcolor{red}{Indeed, the user-item matrix will be mostly empty, so there are often very few overlapping ratings between users. This makes it harder for algorithms like kNN to find similar users, and for models like SVD to learn meaningful patterns, since these only emerge clearly when there’s enough data to separate them from noise.}
     \item Few items dominate the high-rated category, which may bias recommendation systems and favor a TopPop approach.
     \item Most ratings are 5/5, likely because users tend to rate items they like more than those they dislike. This results in a highly imbalanced dataset for the task of predicting ratings.
 \end{itemize}
