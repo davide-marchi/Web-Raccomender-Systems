@@ -1,13 +1,9 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{1}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Hug(2020)}]{surprise}
 Nicolas Hug. 2020.
 \newblock \href {https://doi.org/10.21105/joss.02174} {Surprise: A python library for recommender systems}.
 \newblock \emph{Journal of Open Source Software}, 5(52):2174.
-
-\bibitem[{pandas~development team(2020)}]{pandas}
-The pandas~development team. 2020.
-\newblock \href {https://doi.org/10.5281/zenodo.3509134} {pandas-dev/pandas: Pandas}.
 
 \end{thebibliography}

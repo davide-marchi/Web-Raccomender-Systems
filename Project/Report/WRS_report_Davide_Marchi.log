@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  21 MAR 2025 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  21 MAR 2025 21:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -372,12 +372,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 96.
 
 
-<Images/ratings_per_user.png, id=10, 426.393pt x 354.123pt>
+<Images/ratings_per_user.png, id=8, 426.393pt x 354.123pt>
 File: Images/ratings_per_user.png Graphic file (type png)
 <use Images/ratings_per_user.png>
 Package pdftex.def Info: Images/ratings_per_user.png  used on input line 112.
 (pdftex.def)             Requested size: 175.26956pt x 145.55879pt.
-<Images/ratings_per_item.png, id=12, 426.393pt x 354.123pt>
+<Images/ratings_per_item.png, id=10, 426.393pt x 354.123pt>
 File: Images/ratings_per_item.png Graphic file (type png)
 <use Images/ratings_per_item.png>
 Package pdftex.def Info: Images/ratings_per_item.png  used on input line 119.
@@ -392,12 +392,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
  <./Images/ratings_per_user.png>]
-<Images/rating_value_distribution.png, id=32, 426.393pt x 354.123pt>
+<Images/rating_value_distribution.png, id=29, 426.393pt x 354.123pt>
 File: Images/rating_value_distribution.png Graphic file (type png)
 <use Images/rating_value_distribution.png>
 Package pdftex.def Info: Images/rating_value_distribution.png  used on input line 126.
 (pdftex.def)             Requested size: 175.26956pt x 145.55879pt.
-<Images/long_tail.png, id=34, 859.2903pt x 426.393pt>
+<Images/long_tail.png, id=31, 859.2903pt x 426.393pt>
 File: Images/long_tail.png Graphic file (type png)
 <use Images/long_tail.png>
 Package pdftex.def Info: Images/long_tail.png  used on input line 135.
@@ -441,12 +441,7 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 
 [3]
 
-(./WRS_report_Davide_Marchi.bbl
-Underfull \hbox (badness 3009) in paragraph at lines 10--12
-[]\OT1/ptm/m/n/10 (+20) The pan-das de-vel-op-ment team. 2020.  [][]pandas-
- []
-
-)
+(./WRS_report_Davide_Marchi.bbl)
 
 [4] (./WRS_report_Davide_Marchi.aux)
  ***********
@@ -458,18 +453,18 @@ Package rerunfilecheck Info: File `WRS_report_Davide_Marchi.out' has not changed
  )
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 13448 strings out of 473201
- 215605 string characters out of 5720300
- 667413 words of memory out of 5000000
- 36301 multiletter control sequences out of 15000+600000
+ 13444 strings out of 473201
+ 215552 string characters out of 5720300
+ 670371 words of memory out of 5000000
+ 36298 multiletter control sequences out of 15000+600000
  585283 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,10n,93p,1153b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WRS_report_Davide_Marchi.pdf (4 pages, 188720 bytes).
+Output written on WRS_report_Davide_Marchi.pdf (4 pages, 188859 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 33 named destinations out of 1000 (max. 500000)
+ 116 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 32 named destinations out of 1000 (max. 500000)
  35349 words of extra memory for PDF output out of 35830 (max. 10000000)
 
