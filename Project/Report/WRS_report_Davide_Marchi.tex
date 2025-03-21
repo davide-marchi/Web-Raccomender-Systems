@@ -75,12 +75,12 @@ The dataset used in this project is the ``Musical Instruments'' dataset from the
 To ensure the quality of the dataset, I performed the following preprocessing steps:
 
 \begin{enumerate}
-    \item Removal of missing values (entries with missing user ID, item ID, or rating). \\ \textcolor{red}{\textbf{Outcome:} 0 reviews removed.}
-    \item Deduplication by keeping the most recent rating when a user rated the same item multiple times. \\ \textcolor{red}{\textbf{Outcome:} 1087 reviews removed from the training set and 1178 from test set.}
+    \item Removal of missing values (entries with missing user ID, item ID, or rating). \\ \textcolor{red}{\textbf{Outcome:} 0 ratings removed.}
+    \item Deduplication by keeping the most recent rating when a user rated the same item multiple times. \\ \textcolor{red}{\textbf{Outcome:} 1087 ratings removed from the training set and 1178 from test set.}
     \item Ensuring that all users in the test set are also present in the training set. \\ \textcolor{red}{\textbf{Outcome:} 0 users removed.}
 \end{enumerate}
 
-In terms of dimensions the effect of the cleaning can be summarized in the \autoref{tab:cleaning_effect}.
+In terms of dimensions the effect of the cleaning can be summarized in \autoref{tab:cleaning_effect} (for the ratings) and \autoref{tab:cleaning_effect_users} (for the users).
 
 \begin{table}[H]
     \centering
@@ -94,9 +94,27 @@ In terms of dimensions the effect of the cleaning can be summarized in the \auto
     \hline
     \end{tabular}
     }
-    \caption{Effect of the Data Cleaning Process}
+    \caption{Effect of the Data Cleaning Process on the number of ratings}
     \label{tab:cleaning_effect}
-    \end{table}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \resizebox{1\columnwidth}{!}{
+    {\color{red}
+    \begin{tabular}{lll}
+    \hline
+    \textbf{Dataset} & \textbf{Before Cleaning} & \textbf{After Cleaning} \\
+    \hline
+    Train Set & 800 & 800 \\
+    Test Set & 437 & 437 \\
+    \hline
+    \end{tabular}
+    }
+    }
+    \caption{\textcolor{red}{Effect of the Data Cleaning Process on the number of users}}
+    \label{tab:cleaning_effect_users}
+\end{table}
 
 \subsection{Exploratory Data Analysis and Statistics}
 To gain insights into the dataset, I computed the following statistics:
