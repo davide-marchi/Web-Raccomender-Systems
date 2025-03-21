@@ -214,9 +214,10 @@ To optimize both models and finde the best hyperparameters, I performed a Grid S
     \item \textbf{User-based KNNWithMeans}
     \begin{itemize}
         \item \textbf{k}: [5, 10, 20, 30, 40, 50, 70, 100]
-        \item \textbf{sim\_options}:
+        \item \textbf{similarity\textcolor{red}{\_measure}}: ['cosine', 'msd']
         \begin{itemize}
-            \item \textbf{name}: ['cosine', 'msd']
+            \item \textcolor{red}{\textbf{cosine}: Computes the cosine of the angle between two vectors in a multi-dimensional space, ignoring magnitude and focusing on the direction of ratings.}
+            \item \textcolor{red}{\textbf{msd}: Computes the Mean Squared Difference between corresponding elements of two vectors, capturing the absolute differences in rating values.}
         \end{itemize}
             
     \end{itemize}
@@ -242,7 +243,7 @@ The best hyperparameters for each model can be found in \autoref{tab:best_hyperp
 \hline
 \textbf{Model} & \textbf{Best Hyperparameters} & \textbf{Best RMSE} \\
 \hline
-KNNWithMeans & {'k': 70, 'sim\_options': \{'name': 'cosine'\}} & 0.9100 \\
+KNNWithMeans & {'k': 70, 'similarity\textcolor{red}{\_measure}': 'cosine'} & 0.9100 \\
 SVD & {'n\_factors': 5, 'n\_epochs': 20} & 0.8440 \\
 \hline
 \end{tabular}

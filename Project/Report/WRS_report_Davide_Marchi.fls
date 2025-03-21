@@ -224,9 +224,6 @@ INPUT ./Images/long_tail.png
 INPUT ./Images/long_tail.png
 INPUT ./Images/long_tail.png
 INPUT ./Images/long_tail.png
-INPUT c:/texlive/2024/texmf-dist/tex/latex/psnfss/omsptm.fd
-INPUT c:/texlive/2024/texmf-dist/tex/latex/psnfss/omsptm.fd
-INPUT c:/texlive/2024/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT ./WRS_report_Davide_Marchi.bbl
 INPUT ./WRS_report_Davide_Marchi.bbl
 INPUT WRS_report_Davide_Marchi.bbl
