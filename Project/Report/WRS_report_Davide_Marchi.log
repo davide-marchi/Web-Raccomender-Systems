@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  3 MAR 2025 07:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  21 MAR 2025 21:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -217,25 +217,51 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box54
 \@float@everytoks=\toks19
 \@floatcapt=\box55
-) (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
+) (c:/texlive/2024/texmf-dist/tex/generic/soul/soul.sty
+Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+ (c:/texlive/2024/texmf-dist/tex/generic/soul/soul-ori.sty
+Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
+\SOUL@word=\toks20
+\SOUL@lasttoken=\toks21
+\SOUL@syllable=\toks22
+\SOUL@cmds=\toks23
+\SOUL@buffer=\toks24
+\SOUL@token=\toks25
+\SOUL@syllgoal=\dimen159
+\SOUL@syllwidth=\dimen160
+\SOUL@charkern=\dimen161
+\SOUL@hyphkern=\dimen162
+\SOUL@dimen=\dimen163
+\SOUL@dimeni=\dimen164
+\SOUL@minus=\count291
+\SOUL@comma=\count292
+\SOUL@apo=\count293
+\SOUL@grave=\count294
+\SOUL@spaceskip=\skip55
+\SOUL@ttwidth=\dimen165
+\SOUL@uldp=\dimen166
+\SOUL@ulht=\dimen167
+) (c:/texlive/2024/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2024/12/12 v3.2 Micro-typographical refinements (RS)
-\MT@toks=\toks20
+\MT@toks=\toks26
 \MT@tempbox=\box56
-\MT@count=\count291
+\MT@count=\count295
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1075.
 LaTeX Info: Redefining \leftprotrusion on input line 1076.
-\MT@prot@toks=\toks21
+\MT@prot@toks=\toks27
 LaTeX Info: Redefining \rightprotrusion on input line 1095.
 LaTeX Info: Redefining \textls on input line 1437.
-\MT@outer@kern=\dimen159
+\MT@outer@kern=\dimen168
 LaTeX Info: Redefining \microtypecontext on input line 2041.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2058.
-\MT@listname@count=\count292
+\MT@listname@count=\count296
  (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2024/12/12 v3.2 Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 944.
 LaTeX Info: Redefining \lslig on input line 944.
-\MT@outer@space=\skip55
+\MT@outer@space=\skip56
 )
 Package microtype Info: Loading configuration file microtype.cfg.
  (c:/texlive/2024/texmf-dist/tex/latex/microtype/microtype.cfg
@@ -243,52 +269,52 @@ File: microtype.cfg 2024/12/12 v3.2 microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3053.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 55.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 59.
  (c:/texlive/2024/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count293
+\l__color_backend_stack_int=\count297
 \l__pdf_internal_box=\box57
 ) (./WRS_report_Davide_Marchi.aux)
 \openout1 = `WRS_report_Davide_Marchi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-Package hyperref Info: Link coloring ON on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+Package hyperref Info: Link coloring ON on input line 59.
  (./WRS_report_Davide_Marchi.out) (./WRS_report_Davide_Marchi.out)
 \@outlinefile=\write3
 \openout3 = `WRS_report_Davide_Marchi.out'.
 
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
-\scratchdimen=\dimen160
+\scratchcounter=\count298
+\scratchdimen=\dimen169
 \scratchbox=\box58
-\nofMPsegments=\count295
-\nofMParguments=\count296
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count297
-\MPscratchDim=\dimen161
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
-\everyMPtoPDFconversion=\toks23
+\nofMPsegments=\count299
+\nofMParguments=\count300
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen170
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
+\everyMPtoPDFconversion=\toks29
 ) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -298,20 +324,20 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 55.
-Package microtype Info: Applying patch `item' on input line 55.
-Package microtype Info: Applying patch `toc' on input line 55.
-Package microtype Info: Applying patch `eqnum' on input line 55.
-Package microtype Info: Applying patch `footnote' on input line 55.
-Package microtype Info: Applying patch `verbatim' on input line 55.
-LaTeX Info: Redefining \microtypesetup on input line 55.
+LaTeX Info: Redefining \microtypecontext on input line 59.
+Package microtype Info: Applying patch `item' on input line 59.
+Package microtype Info: Applying patch `toc' on input line 59.
+Package microtype Info: Applying patch `eqnum' on input line 59.
+Package microtype Info: Applying patch `footnote' on input line 59.
+Package microtype Info: Applying patch `verbatim' on input line 59.
+LaTeX Info: Redefining \microtypesetup on input line 59.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 55.
+LaTeX Info: Redefining \showhyphens on input line 59.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -321,16 +347,16 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 56.
+(Font)              <12> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 56.
+(Font)              <8> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 56.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 56.
+(Font)              <6> on input line 60.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 60.
  (c:/texlive/2024/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 68.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 72.
  (c:/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
@@ -338,23 +364,23 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 74.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 78.
  (c:/texlive/2024/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 92.
+(Font)              <10.95> on input line 96.
 
 
 <Images/ratings_per_user.png, id=10, 426.393pt x 354.123pt>
 File: Images/ratings_per_user.png Graphic file (type png)
 <use Images/ratings_per_user.png>
-Package pdftex.def Info: Images/ratings_per_user.png  used on input line 108.
+Package pdftex.def Info: Images/ratings_per_user.png  used on input line 112.
 (pdftex.def)             Requested size: 175.26956pt x 145.55879pt.
 <Images/ratings_per_item.png, id=12, 426.393pt x 354.123pt>
 File: Images/ratings_per_item.png Graphic file (type png)
 <use Images/ratings_per_item.png>
-Package pdftex.def Info: Images/ratings_per_item.png  used on input line 115.
+Package pdftex.def Info: Images/ratings_per_item.png  used on input line 119.
 (pdftex.def)             Requested size: 175.26956pt x 145.55879pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -369,12 +395,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Images/rating_value_distribution.png, id=32, 426.393pt x 354.123pt>
 File: Images/rating_value_distribution.png Graphic file (type png)
 <use Images/rating_value_distribution.png>
-Package pdftex.def Info: Images/rating_value_distribution.png  used on input line 122.
+Package pdftex.def Info: Images/rating_value_distribution.png  used on input line 126.
 (pdftex.def)             Requested size: 175.26956pt x 145.55879pt.
 <Images/long_tail.png, id=34, 859.2903pt x 426.393pt>
 File: Images/long_tail.png Graphic file (type png)
 <use Images/long_tail.png>
-Package pdftex.def Info: Images/long_tail.png  used on input line 131.
+Package pdftex.def Info: Images/long_tail.png  used on input line 135.
 (pdftex.def)             Requested size: 219.08612pt x 108.71251pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -382,33 +408,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 180--181
+Underfull \hbox (badness 3612) in paragraph at lines 184--185
 \OT1/ptm/m/n/10.95 (+20) I then used the Scikit-Surprise li-brary([][]Hug[][],
  []
 
 
 
 [2 <./Images/ratings_per_item.png> <./Images/rating_value_distribution.png> <./Images/long_tail.png>]
-Underfull \hbox (badness 6268) in paragraph at lines 183--184
+Underfull \hbox (badness 6268) in paragraph at lines 187--188
 []\OT1/ptm/b/n/10.95 (+20) User-based k-Nearest Neigh-bors with
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 184--185
+Underfull \hbox (badness 1406) in paragraph at lines 188--189
 \OT1/ptm/m/n/10.95 (+20) la-tent fac-tor model that de-com-poses the
  []
 
 
-Underfull \hbox (badness 4353) in paragraph at lines 184--185
+Underfull \hbox (badness 4353) in paragraph at lines 188--189
 \OT1/ptm/m/n/10.95 (+20) user-item in-ter-ac-tion ma-trix into lower-
  []
 
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 227.
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 231.
 (c:/texlive/2024/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 227.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
 
 
 
@@ -432,15 +458,15 @@ Package rerunfilecheck Info: File `WRS_report_Davide_Marchi.out' has not changed
  )
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 13194 strings out of 473201
- 211501 string characters out of 5720300
- 656277 words of memory out of 5000000
- 36059 multiletter control sequences out of 15000+600000
- 584970 words of font info for 200 fonts, out of 8000000 for 9000
+ 13448 strings out of 473201
+ 215605 string characters out of 5720300
+ 667413 words of memory out of 5000000
+ 36301 multiletter control sequences out of 15000+600000
+ 585283 words of font info for 201 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,10n,93p,1153b,618s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WRS_report_Davide_Marchi.pdf (4 pages, 188029 bytes).
+Output written on WRS_report_Davide_Marchi.pdf (4 pages, 188720 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  92 compressed objects within 1 object stream

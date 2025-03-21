@@ -19,7 +19,11 @@
 \usepackage{latexsym}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{soul}  % Better strikethrough
 \renewcommand{\UrlFont}{\ttfamily\small}
+
+% Define the \deleted command
+\newcommand{\deleted}[1]{{\textcolor{red}{\st{#1}}}}
 
 % This is not strictly necessary, and may be commented out,
 % but it will improve the layout of the manuscript,
@@ -55,7 +59,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This report presents the development process of the project for the Web Recommender Systems course at the University of Copenhagen.
+\deleted{This report presents the development process of the project for the Web Recommender Systems course at the University of Copenhagen.}
 \end{abstract}
 
 \section{Week 6 [Feb 3 - Feb 9]: Familiarize Yourself with the Datasets}
