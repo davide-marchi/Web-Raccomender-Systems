@@ -94,7 +94,7 @@ In terms of dimensions the effect of the cleaning can be summarized in \autoref{
     \hline
     \end{tabular}
     }
-    \caption{Effect of the Data Cleaning Process on the number of ratings}
+    \caption{Effect of the Data Cleaning Process on the Number of Ratings}
     \label{tab:cleaning_effect}
 \end{table}
 
@@ -112,7 +112,7 @@ In terms of dimensions the effect of the cleaning can be summarized in \autoref{
     \end{tabular}
     }
     }
-    \caption{\textcolor{red}{Effect of the Data Cleaning Process on the number of users}}
+    \caption{\textcolor{red}{Effect of the Data Cleaning Process on the Number of Users}}
     \label{tab:cleaning_effect_users}
 \end{table}
 
@@ -241,14 +241,14 @@ The best hyperparameters for each model can be found in \autoref{tab:best_hyperp
 \resizebox{1\columnwidth}{!}{
 \begin{tabular}{lll}
 \hline
-\textbf{Model} & \textbf{Best Hyperparameters} & \textbf{Best RMSE} \\
+\textbf{Model} & \textbf{Best Hyperparameters} & \textbf{Avg RMSE} \\
 \hline
 KNNWithMeans & {'k': 70, 'similarity\textcolor{red}{\_measure}': 'cosine'} & 0.9100 \\
 SVD & {'n\_factors': 5, 'n\_epochs': 20} & 0.8440 \\
 \hline
 \end{tabular}
 }
-\caption{Best Hyperparameters and RMSE for Each Model}
+\caption{Best Hyperparameters and \textcolor{red}{Average} RMSE \textcolor{red}{Across the 5 Folds} for Each Model}
 \label{tab:best_hyperparameters}
 \end{table}
 
