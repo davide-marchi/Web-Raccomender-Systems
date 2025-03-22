@@ -254,7 +254,7 @@ SVD & {'n\_factors': 5, 'n\_epochs': 20} & 0.8440 \\
 
 The SVD model, despite it's low dimensional latent space, outperformed the KNNWithMeans model with a lower RMSE of 0.8440 compared to 0.9100. This indicates that the latent factor model is better at capturing the underlying patterns in the user-item interaction matrix.
 
-After that, both models were trained again on the whole training set to ensure that no data available for training was left behind before the evaluation on the test set.
+After that, \textcolor{red}{I ran the models with the optimal hyperparameters on the full training set and used them to predict the missing ratings. These predictions will later be compared to the actual ratings in the test set to assess model performance.}
 
 \section{Week 8 [Feb 17 - Feb 23]: Evaluation of Recommender Systems}
 
