@@ -23,7 +23,7 @@
 \renewcommand{\UrlFont}{\ttfamily\small}
 
 % Define the \deleted command
-\newcommand{\deleted}[1]{{\textcolor{red}{\st{#1}}}}
+%\newcommand{\deleted}[1]{{\textcolor{red}{\st{#1}}}}
 
 % This is not strictly necessary, and may be commented out,
 % but it will improve the layout of the manuscript,
@@ -58,18 +58,13 @@
 
 \begin{document}
 \maketitle
-\begin{abstract}
-\deleted{This report presents the development process of the project for the Web Recommender Systems course at the University of Copenhagen.}
-\end{abstract}
 
 \section{Week 6 [Feb 3 - Feb 9]: Familiarize Yourself with the Datasets}
 
 This week focused on understanding the dataset and preparing it for recommendation tasks. The goal was to clean the data, explore its properties, and extract key statistics to gain insights into user-item interactions. This preprocessing step was essential to ensure data quality for later modeling.
 
-\subsection{Dataset Description and Import}
+\subsection{Dataset Description}
 The dataset used in this project is the ``Musical Instruments'' dataset from the Amazon Review data 2023 (5-core subset). The dataset consists of 14,000 item ratings from nearly 900 users on approximately 500 items. The data is split into training and test sets, with 80\% of the data allocated for training (``train.tsv'') and 20\% for testing (``test.tsv'').
-
-\deleted{The dataset was imported using the Python library \texttt{pandas} and its \texttt{read\_csv} function.}
 
 \subsection{Data Cleaning and Preprocessing}
 To ensure the quality of the dataset, I performed the following preprocessing steps:
