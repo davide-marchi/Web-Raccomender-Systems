@@ -479,7 +479,7 @@ To estimate a rating for a given user-item pair, I computed the cosine similarit
 \[
 \mathrm{predicted\_rating} = 1 + 4 \cdot \mathrm{similarity}
 \]
-Applied to the test set, this strategy yielded a high RMSE of \textbf{3.18}, mainly because most ratings are 5-stars, while cosine similarities tend to be low. Consequently, the linear mapping underestimates scores, failing to capture the skewed rating distribution.
+Applied to 100 random ratings in the test set, this strategy yielded a high RMSE of \textbf{3.18}, mainly because most ratings are 5-stars, while cosine similarities tend to be low. Consequently, the linear mapping underestimates scores, failing to capture the skewed rating distribution.
 
 \subsection{Top-N Recommendation Strategy}
 Rather than relying on the predicted ratings directly, I used the cosine similarities themselves to produce ranked recommendation lists. For each user, all unrated items were sorted by their similarity to the user's profile vector, and the top-10 most similar items were selected as recommendations.
