@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  22 MAR 2025 03:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  27 MAR 2025 02:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -426,13 +426,31 @@ Underfull \hbox (badness 4353) in paragraph at lines 201--202
 
 
 
-[4] (./WRS_report_Davide_Marchi.bbl)
+[4]
 
 
 
-[5
+[5]
+<Images/tfidf_w2v_similarity.png, id=92, 836.8866pt x 354.123pt>
+File: Images/tfidf_w2v_similarity.png Graphic file (type png)
+<use Images/tfidf_w2v_similarity.png>
+Package pdftex.def Info: Images/tfidf_w2v_similarity.png  used on input line 445.
+(pdftex.def)             Requested size: 197.17616pt x 83.42964pt.
 
-] (./WRS_report_Davide_Marchi.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
+[]\OT1/ptm/m/n/10.95 (+20) TF-IDF cap-tures lex-i-cal over-lap, while
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 450--451
+\OT1/ptm/m/n/10.95 (+20) when word choice varies. The two spaces
+ []
+
+
+
+(./WRS_report_Davide_Marchi.bbl)
+
+[6 <./Images/tfidf_w2v_similarity.png>] (./WRS_report_Davide_Marchi.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -442,18 +460,18 @@ Package rerunfilecheck Info: File `WRS_report_Davide_Marchi.out' has not changed
  )
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 13389 strings out of 473201
- 214589 string characters out of 5720300
- 663542 words of memory out of 5000000
- 36238 multiletter control sequences out of 15000+600000
- 585059 words of font info for 204 fonts, out of 8000000 for 9000
+ 13443 strings out of 473201
+ 215421 string characters out of 5720300
+ 663918 words of memory out of 5000000
+ 36250 multiletter control sequences out of 15000+600000
+ 585892 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,1153b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WRS_report_Davide_Marchi.pdf (5 pages, 180452 bytes).
+ 90i,10n,93p,1153b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on WRS_report_Davide_Marchi.pdf (6 pages, 293450 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 37 named destinations out of 1000 (max. 500000)
- 34837 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 34842 words of extra memory for PDF output out of 35830 (max. 10000000)
 

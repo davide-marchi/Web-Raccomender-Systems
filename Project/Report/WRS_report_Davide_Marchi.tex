@@ -362,6 +362,161 @@ In a case where the only important thing is precision, \textbf{TopPop} is undoub
 
 This approach also helps to spread the upcoming reviews, while \textbf{TopPop} would just end up making the popular items even more popular and the less common items even less common in proportion.
 
+\subsection{Analysis on the Effect of the Long-tail}
+To better understand how user and item activity impacts recommendation quality, I analyzed the performance of the models across different segments of the user and item distribution.
+
+Users were sorted by the number of ratings in the training set and divided into top 20\% and bottom 20\% groups. Then, I computed the Hit Rate for each group using the three recommenders (TopPop, KNNWithMeans, SVD). The results are reported in Table~\ref{tab:longtail-users}.
+
+\begin{table}[H]
+\centering
+\resizebox{1\columnwidth}{!}{
+\begin{tabular}{lll}
+\hline
+\textbf{Model} & \textbf{Top 20\% Users} & \textbf{Bottom 20\% Users} \\
+\hline
+TopPop & 0.164 & 0.371 \\
+KNNWithMeans & 0.180 & 0.145 \\
+SVD & 0.098 & 0.119 \\
+\hline
+\end{tabular}
+}
+\caption{Hit Rate for Top and Bottom 20\% of Users}
+\label{tab:longtail-users}
+\end{table}
+
+Interestingly, TopPop performs best for less active users. This aligns with its non-personalized nature: popular items are more likely to match the sparse preferences of cold-start users. On the other hand, KNN performs better for active users, benefiting from richer collaborative signals.
+
+A similar analysis was performed for items, by computing coverage for the top and bottom 20\% most rated items. Table~\ref{tab:longtail-items} shows the results.
+
+\begin{table}[H]
+\centering
+\resizebox{1\columnwidth}{!}{
+\begin{tabular}{lll}
+\hline
+\textbf{Model} & \textbf{Top 20\% Items} & \textbf{Bottom 20\% Items} \\
+\hline
+TopPop & 0.099 & 0.000 \\
+KNNWithMeans & 0.475 & 0.624 \\
+SVD & 0.188 & 0.020 \\
+\hline
+\end{tabular}
+}
+\caption{Coverage for Top and Bottom 20\% of Items}
+\label{tab:longtail-items}
+\end{table}
+
+KNNWithMeans significantly outperforms other models in recommending less frequent items, highlighting its ability to diversify suggestions. In contrast, TopPop completely ignores the long tail.
+
+\subsection{Error Analysis for the Neighborhood-based CF}
+To better understand the behavior of KNNWithMeans, I performed an error analysis based on Reciprocal Rank (RR). I selected one user with high RR (= 1.0) and one with low RR (= 0.0), and inspected their top-10 nearest neighbors.
+
+I found that the average overlap in item history between the high-RR user and their neighbors was \textbf{1.30 items}, compared to only \textbf{1.00 item} for the low-RR user. This suggests that the model performs poorly when the user’s rating history is dissimilar to their neighbors'.
+
+Additionally, in cases with low RR, I noticed that many of the nearest neighbors had very different item preferences, which diluted the quality of the recommendations.
+
+\textbf{Conclusion:} For KNN-based models to be effective, the training data must have sufficient overlap between users. Sparse data significantly impairs performance and increases the chance of irrelevant neighbors.
+
+\section{Week 9 [Feb 24 - Mar 2]: Text Representation}
+
+This week focused on Natural Language Processing (NLP) techniques to extract useful representations from the item descriptions. These textual features serve as the foundation for building content-based and hybrid recommendation models.
+
+\subsection{Preprocessing}
+To reduce noise and focus on semantic content, I cropped all item descriptions to the first 1000 characters, which covered more than 84\% of items. Then, I applied the following preprocessing steps:
+\begin{itemize}
+    \item Tokenization using NLTK
+    \item Lowercasing
+    \item Stopword removal (NLTK stopword list)
+    \item Stemming (Snowball Stemmer)
+\end{itemize}
+The vocabulary size was reduced from 51,296 to 27,243 tokens, significantly improving sparsity and reducing dimensionality.
+
+\subsection{Vector Representations}
+Two main representations were used:
+\begin{itemize}
+    \item \textbf{TF-IDF}: Sparse vectors built from the preprocessed descriptions using Scikit-learn. Final shape: $(\\mathrm{n\\ items}) \\times 27{,}243$.
+    \item \textbf{Word2Vec}: Pretrained Google News embeddings were averaged over tokens to produce 300-dimensional dense vectors.
+\end{itemize}
+
+\subsection{Cosine Similarity Analysis}
+I selected a subset of 10 items and compared their pairwise similarities using each method. Figure~\ref{fig:tfidf-w2v-similarity} shows the heatmaps.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Images/tfidf_w2v_similarity.png}
+    \caption{Cosine similarity between item vectors (TF-IDF vs Word2Vec)}
+    \label{fig:tfidf-w2v-similarity}
+\end{figure}
+
+TF-IDF captures lexical overlap, while Word2Vec captures conceptual similarity, even when word choice varies. The two spaces complement each other well.
+
+\subsection{Optional: BERT Embeddings}
+To further explore semantic encoding, I used the [CLS] token representation from BERT. This produced 768-dimensional dense vectors. Similarity matrices from BERT embeddings showed better clustering for semantically close items, though the cost was significantly higher.
+
+\section{Week 10 [Mar 3 - Mar 9]: Content-Based Recommender System}
+
+Using the representations from Week 9, I implemented a recommender system that ranks items based on similarity to a user's content profile.
+
+\subsection{Item and User Representations}
+Each item was represented as a TF-IDF vector over both its title and description. The vectors were concatenated, resulting in a 41,550-dimensional feature space. Titles were preprocessed identically to descriptions.
+
+Each user was represented as the mean vector of the items they rated in the training set.
+
+\subsection{Prediction and Evaluation}
+I used cosine similarity between user and item vectors to rank unobserved items. The predicted rating was a linear transformation of similarity to the [1, 5] scale.
+
+Evaluation metrics, using ratings $\geq 4$ in the test set, are presented in Table~\ref{tab:cb-results}.
+
+\begin{table}[H]
+\centering
+\resizebox{1\columnwidth}{!}{
+\begin{tabular}{llllll}
+\hline
+\textbf{Model} & \textbf{Hit Rate} & \textbf{Precision@10} & \textbf{MAP@10} & \textbf{MRR@10} & \textbf{Coverage} \\
+\hline
+Content-Based & 0.0121 & 0.0012 & 0.0007 & 0.0022 & 0.0485 \\
+\hline
+\end{tabular}}
+\caption{Content-Based Recommender Evaluation Results}
+\label{tab:cb-results}
+\end{table}
+
+The model struggled to make strong predictions, likely due to the weak correlation between text similarity and rating preferences. However, it provided valuable diversity and cold-start handling capabilities.
+
+\section{Week 11 [Mar 10 - Mar 16]: Hybrid Recommender Systems}
+
+To combine the strengths of collaborative and content-based methods, I implemented three hybrid strategies.
+
+\subsection{Parallel Hybrid}
+Both models rank all items, and scores are aggregated by inverse rank sum. Results in Table~\ref{tab:hybrid-results}.
+
+\subsection{Switching Hybrid}
+Users with $\geq 5$ ratings use KNN, others use content-based.
+
+\subsection{Pipeline Hybrid}
+Content-based model generates candidates (top-25), then re-ranked using KNN.
+
+\begin{table}[H]
+\centering
+\resizebox{1\columnwidth}{!}{
+\begin{tabular}{llllll}
+\hline
+\textbf{Model} & \textbf{Hit Rate} & \textbf{Precision@10} & \textbf{MAP@10} & \textbf{MRR@10} & \textbf{Coverage} \\
+\hline
+Parallel Hybrid & 0.0583 & 0.0058 & 0.0048 & 0.0186 & 0.0944 \\
+Switching Hybrid & 0.0825 & 0.0083 & 0.0077 & 0.0262 & 0.0526 \\
+Pipeline Hybrid & 0.0194 & 0.0019 & 0.0031 & 0.0133 & 0.0486 \\
+\hline
+\end{tabular}}
+\caption{Evaluation Results of Hybrid Recommenders}
+\label{tab:hybrid-results}
+\end{table}
+
+\subsection{Discussion}
+The switching hybrid performed best overall, combining personalization with fallback for cold-start users. The parallel hybrid showed the highest coverage improvement, proving beneficial for diversity. Pipeline hybrid had moderate impact, possibly limited by content-only candidate generation.
+
+In conclusion, hybrid approaches allow for more robust and balanced recommendations by leveraging both collaborative signals and item content.
+
+
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
 
