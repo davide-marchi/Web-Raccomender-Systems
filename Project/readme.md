@@ -2,8 +2,6 @@
 
 Davide Marchi - lnx547@alumni.ku.dk
 
-# Amazon Musical Instruments
-
 This project implements a recommender system using the Amazon Musical Instruments 5-core dataset. It includes data preprocessing, exploratory analysis, collaborative filtering models, and evaluation based on both accuracy and recommendation quality.
 
 ---
