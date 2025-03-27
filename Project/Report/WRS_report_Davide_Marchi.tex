@@ -475,13 +475,20 @@ Each item was encoded using TF-IDF vectors built from both the title and descrip
 
 To represent each user, I computed the mean vector of all items they had rated in the training set. This approach creates a content-profile for each user, summarizing the textual characteristics of their preferences.
 
-\subsection{Prediction Method}
-Predictions were computed by taking the cosine similarity between a user vector and the TF-IDF vector of each candidate item. To transform this similarity into a rating score in the range [1, 5], I applied a linear rescaling based on observed min/max similarities in the training data.
+\subsection{Rating Prediction}
+To estimate a rating for a given user-item pair, I computed the cosine similarity between the user profile and the candidate item's TF-IDF vector. These similarity scores fall within the [0, 1] range. I then applied a simple linear transformation to map this value to the target [1, 5] rating range:
+\[
+\mathrm{predicted\_rating} = 1 + 4 \cdot \mathrm{similarity}
+\]
+This prediction strategy was applied to the test set, and the RMSE was computed. The resulting RMSE was high, around \textbf{3.18}, due to the nature of the data: the vast majority of ratings in the dataset are 5-stars, while cosine similarities between most items are very small. As a result, linearly rescaled predictions skew toward lower values, failing to match the heavily skewed distribution of ground truth ratings.
 
-The top-10 recommended items were extracted by selecting those with the highest predicted scores that the user had not seen during training.
+\subsection{Top-N Recommendation Strategy}
+Rather than relying on the predicted ratings directly, I used the cosine similarities themselves to produce ranked recommendation lists. For each user, all unrated items were sorted by their similarity to the user's profile vector, and the top-10 most similar items were selected as recommendations.
+
+This similarity-based approach avoids distortion introduced by rescaling and directly reflects how well an item's textual content matches the user's historical preferences.
 
 \subsection{Evaluation}
-I evaluated the recommendations using standard metrics: Hit Rate, Precision@10, MAP@10, MRR@10, and Coverage. Items with test ratings $\geq 4$ were considered relevant.
+I evaluated on the test set the recommendations using standard metrics: Hit Rate, Precision@10, MAP@10, MRR@10, and Coverage. Items with test ratings $\geq 4$ were considered relevant.
 
 \begin{table}[H]
 \centering
@@ -497,7 +504,7 @@ Content-Based & 0.0121 & 0.0012 & 0.0007 & 0.0022 & 0.0485 \\
 \label{tab:cb-results}
 \end{table}
 
-The results show limited predictive power, likely due to the semantic gap between text-based similarity and actual user preferences. Still, the model increases item diversity and is particularly useful for cold-start items.
+The results show limited predictive power, likely due to the semantic gap between text-based similarity and actual user preferences. Still, the model has decent item diversity and is particularly useful for cold-start items.
 
 \section{Week 11 [Mar 10 - Mar 16]: Hybrid Recommender Systems}
 
