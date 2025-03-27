@@ -228,6 +228,9 @@ INPUT ./Images/bert_similarity.png
 INPUT ./Images/bert_similarity.png
 INPUT ./Images/bert_similarity.png
 INPUT ./Images/bert_similarity.png
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm
 INPUT ./Images/starplot_hybrids.png
 INPUT ./Images/starplot_hybrids.png
 INPUT ./Images/starplot_hybrids.png

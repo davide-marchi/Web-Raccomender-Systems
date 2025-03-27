@@ -439,7 +439,7 @@ To represent the descriptions in vector spaces two main representations were use
 \end{itemize}
 
 \subsection{Cosine Similarity Analysis}
-I selected a subset of 10 items and compared their pairwise similarities using each method. Figure~\ref{fig:tfidf-w2v-similarity} shows the heatmaps.
+I selected a subset of 10 items and compared their pairwise similarities using each method. \autoref{fig:tfidf-w2v-similarity} shows the heatmaps.
 
 \begin{figure}[H]
     \centering
@@ -526,42 +526,43 @@ Users with more than 5 interactions used collaborative filtering, while users wi
 For each user, the top-25 items most similar to their profile (from the content-based model) were selected as candidates. These were re-ranked using KNNWithMeans scores.
 
 \subsection{Evaluation and Comparison}
-All models were evaluated using the same metrics as before. The results are shown in Table~\ref{tab:hybrid-results}.
+All models were evaluated on the test set using the same metrics as before. The results are shown in \autoref{tab:final-results}.
 
 \begin{table}[H]
-\centering
-\resizebox{1\columnwidth}{!}{
-\begin{tabular}{llllll}
-\hline
-\textbf{Model} & \textbf{Hit Rate} & \textbf{Precision@10} & \textbf{MAP@10} & \textbf{MRR@10} & \textbf{Coverage} \\
-\hline
-Parallel Hybrid & 0.0583 & 0.0058 & 0.0048 & 0.0186 & 0.0944 \\
-Switching Hybrid & 0.0825 & 0.0083 & 0.0077 & 0.0262 & 0.0526 \\
-Pipeline Hybrid & 0.0194 & 0.0019 & 0.0031 & 0.0133 & 0.0486 \\
-\hline
-\end{tabular}}
-\caption{Evaluation Results of Hybrid Recommenders}
-\label{tab:hybrid-results}
-\end{table}
+    \centering
+    \resizebox{1\columnwidth}{!}{
+    \begin{tabular}{llllll}
+    \hline
+    \textbf{Model} & \textbf{Hit Rate} & \textbf{Precision@10} & \textbf{MAP@10} & \textbf{MRR@10} & \textbf{Coverage} \\
+    \hline
+    TopPop & 0.2369 & 0.0237 & 0.0184 & 0.0614 & 0.0198 \\
+    Random & 0.0078 & 0.0008 & 0.0004 & 0.0015 & 0.9253 \\
+    UserKNN (cosine) & 0.0680 & 0.0069 & 0.0060 & 0.0189 & 0.0956 \\
+    ItemKNN (cosine) & 0.0932 & 0.0092 & 0.0082 & 0.0273 & 0.1233 \\
+    SVD & 0.0845 & 0.0085 & 0.0076 & 0.0252 & 0.0386 \\
+    Content-Based & 0.0121 & 0.0012 & 0.0007 & 0.0022 & 0.0485 \\
+    Parallel Hybrid & 0.0583 & 0.0058 & 0.0048 & 0.0186 & 0.0944 \\
+    Switching Hybrid & 0.0825 & 0.0083 & 0.0077 & 0.0262 & 0.0526 \\
+    Pipeline Hybrid & 0.0194 & 0.0019 & 0.0031 & 0.0133 & 0.0486 \\
+    \hline
+    \end{tabular}}
+    \caption{Comparison of all tested recommenders on the test set (ratings $\geq$ 4 considered relevant)}
+    \label{tab:final-results}
+    \end{table}
 
-Among the three, the \textbf{Switching Hybrid} performed best across most metrics. It capitalized on the strengths of CF for well-known users while handling cold-starts with content-based fallback. The \textbf{Parallel Hybrid} had the highest coverage, benefiting from both sources of diversity. The \textbf{Pipeline Hybrid}, although conceptually appealing, performed worse, possibly due to candidate filtering removing relevant items.
+Among the three hybrid systems, the \textbf{Switching Hybrid} performed best across most metrics. It capitalized on the strengths of CF for well-known users while handling cold-starts with content-based fallback. The \textbf{Parallel Hybrid} had the highest coverage, benefiting from both sources of diversity. The \textbf{Pipeline Hybrid}, although conceptually appealing, performed worse, possibly due to candidate filtering removing relevant items.
 
 \subsection{Visual Comparison with Star Plot}
-To visually compare the models, I created a star plot (\autoref{fig:starplot}) using the five evaluation metrics. Each axis represents one metric, and the area enclosed reflects overall performance.
+To visually compare the models, I created a star plot (\autoref{fig:starplot}) using the five evaluation metrics on the test set. Each axis represents one metric (normalized), and the area enclosed reflects overall performance.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{Images/starplot_hybrids.png}
-    \caption{Star plot comparing hybrid recommender performance}
+    \caption{Star plot comparing performances}
     \label{fig:starplot}
 \end{figure}
 
-From the plot, the Switching Hybrid clearly dominates in most directions, showing strong performance balance. The Parallel Hybrid expands mostly on the Coverage axis, while the Pipeline Hybrid remains comparatively compact across all dimensions.
-
-This visualization supports the conclusion that combining strategies leads to more robust and flexible recommendation systems.
-
-
-
+This visualization supports a deeper analysis of the strengths and weaknesses of each approach. TopPop performs best across most metrics but suffers from extremely limited coverage, as it only recommends a few popular items. The KNN-based collaborative filtering model offers a strong balance between high performance and coverage, making it appear to be the best overall performer. However, it struggles with cold-start scenarios, especially for items, which makes it difficult to integrate new products into the system without prior interaction data. For this reason, hybrid systems, though sometimes less impressive in terms of raw metrics, prove to be valuable by incorporating content-based signals. This enables better generalization, robustness, and the ability to recommend new or sparsely rated items.
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
 
