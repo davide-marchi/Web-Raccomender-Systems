@@ -365,7 +365,7 @@ This approach also helps to spread the upcoming reviews, while \textbf{TopPop} w
 \subsection{Analysis on the Effect of the Long-tail}
 To better understand how user and item activity impacts recommendation quality, I analyzed the performance of the models across different segments of the user and item distribution.
 
-Users were sorted by the number of ratings in the training set and divided into top 20\% and bottom 20\% groups. Then, I computed the Hit Rate for each group using the three recommenders (TopPop, KNNWithMeans, SVD). The results are reported in Table~\ref{tab:longtail-users}.
+Users were sorted by the number of ratings in the training set and divided into top 20\% and bottom 20\% groups. Then, I computed on the test set the Hit Rate for each group using the three recommenders (TopPop, KNNWithMeans, SVD). The results are reported in \autoref{tab:longtail-users}.
 
 \begin{table}[H]
 \centering
@@ -386,7 +386,7 @@ SVD & 0.098 & 0.119 \\
 
 Interestingly, TopPop performs best for less active users. This aligns with its non-personalized nature: popular items are more likely to match the sparse preferences of cold-start users. On the other hand, KNN performs better for active users, benefiting from richer collaborative signals.
 
-A similar analysis was performed for items, by computing coverage for the top and bottom 20\% most rated items. Table~\ref{tab:longtail-items} shows the results.
+A similar analysis was performed for items, by computing on the test set the coverage for the top and bottom 20\% most rated items of the train set. \autoref{tab:longtail-items} shows the results.
 
 \begin{table}[H]
 \centering
