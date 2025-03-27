@@ -405,7 +405,7 @@ SVD & 0.188 & 0.020 \\
 \label{tab:longtail-items}
 \end{table}
 
-KNNWithMeans significantly outperforms other models in recommending less frequent items, highlighting its ability to diversify suggestions. In contrast, TopPop completely ignores the long tail.
+KNNWithMeans was the only model that consistently recommended long-tail items, which is crucial for discovering niche content. In contrast, TopPop completely ignores the long tail.
 
 \subsection{Error Analysis for the Neighborhood-based CF}
 To better understand the behavior of KNNWithMeans, I performed an error analysis based on Reciprocal Rank (RR). I selected one user with high RR (= 1.0) and one with low RR (= 0.0), and inspected their top-10 nearest neighbors.
@@ -456,7 +456,7 @@ Also, Word2Vec values were generally higher due to its ability to match conceptu
 
 \subsection{Optional: BERT Embeddings}
 
-To explore contextualized embeddings, I used the `bert-base-uncased` model and extracted the 768-dimensional [CLS] token from the last hidden layer to represent each description. As with the other methods, I computed pairwise cosine similarities on a 10-item subset and visualized the results in \autoref{fig:bert-similarity}. The heatmap shows patterns similar to TF-IDF and Word2Vec but with notable differences, suggesting BERT captures distinct semantic relationships.
+To explore contextualized embeddings, I used the `bert-base-uncased` model and extracted the 768-dimensional [CLS] token from the last hidden layer to represent each description. As with the other methods, I computed pairwise cosine similarities on a 10-item subset and visualized the results in \autoref{fig:bert-similarity}. The heatmap shows patterns similar to TF-IDF and Word2Vec but with notable differences, which suggests BERT picks up on different kinds of semantic relationships than the previous models.
 
 \begin{figure}[H]
     \centering
