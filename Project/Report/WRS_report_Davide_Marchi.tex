@@ -331,7 +331,7 @@ The results of the computation of these metrics are shown in \autoref{tab:evalua
             \hline
         \end{tabular}
     }
-    \caption{Evaluation Metrics for Top-10 Recommendations \textcolor{red}{on the Test Set}}
+    \caption{Evaluation Metrics for Top-10 Recommendations \textcolor{red}{on the Test Set (ratings $\geq$ 4 considered relevant)}}
     \label{tab:evaluation_metrics}
 \end{table}
 
@@ -429,12 +429,12 @@ To reduce noise and focus on semantic content, I cropped all item descriptions t
     \item \textbf{Digit-containing token removal}.
     \item \textbf{Stemming} (using the SnowballStemmer).
 \end{enumerate}
-The vocabulary size was reduced from 51,296 to 27,243 tokens, significantly improving sparsity and reducing dimensionality.
+The vocabulary size was reduced from 51,296 to 27,243 tokens, decreasing sparsity and leading to denser representations.
 
 \subsection{Vector Representations}
 To represent the descriptions in vector spaces two main representations were used:
 \begin{itemize}
-    \item \textbf{TF-IDF}: Sparse vectors built from the preprocessed descriptions using Scikit-learn. Final shape: $(\mathrm{n\ items}) \times 27{,}243$.
+    \item \textbf{TF-IDF}: Sparse vectors built from the preprocessed descriptions. Final shape: $(\mathrm{n\ items}) \times 27{,}243$.
     \item \textbf{Word2Vec}: Pretrained Google News embeddings were averaged over tokens to produce 300-dimensional dense vectors.
 \end{itemize}
 
@@ -456,7 +456,7 @@ Also, Word2Vec values were generally higher due to its ability to match conceptu
 
 \subsection{Optional: BERT Embeddings}
 
-To explore contextualized embeddings, I used the `bert-base-uncased` model and extracted the 768-dimensional [CLS] token from the last hidden layer to represent each description. As with the other methods, I computed pairwise cosine similarities on a 10-item subset and visualized the results in \autoref{fig:bert-similarity}. The heatmap shows patterns similar to TF-IDF and Word2Vec but with notable differences, which suggests BERT picks up on different kinds of semantic relationships than the previous models.
+To explore contextualized embeddings, I used the `bert-base-uncased` model and extracted the 768-dimensional [CLS] token from the last hidden layer to represent each description. As with the other methods, I computed pairwise cosine similarities on the 10-item subset and visualized the results in \autoref{fig:bert-similarity}. The heatmap shows patterns similar to TF-IDF and Word2Vec but with notable differences, which suggests BERT picks up on different kinds of semantic relationships than the previous models.
 
 \begin{figure}[H]
     \centering
@@ -470,9 +470,9 @@ To explore contextualized embeddings, I used the `bert-base-uncased` model and e
 In this phase, I leveraged the item representations obtained from textual data to build a content-based recommender system. The objective was to predict user preferences based solely on item content, without relying on collaborative signals.
 
 \subsection{Item and User Representation}
-Each item was encoded using TF-IDF vectors built from both the title and description fields. The preprocessing pipeline was the same as in Week 9, and the resulting vectors were concatenated into a single high-dimensional representation (41,550 features).
+Each \textbf{item} was encoded using TF-IDF vectors built from both the title and description fields. The preprocessing pipeline was the same as in Week 9, and the resulting vectors were concatenated into a single high-dimensional representation (41,550 features).
 
-To represent each user, I computed the mean vector of all items they had rated in the training set. This approach creates a content-profile for each user, summarizing the textual characteristics of their preferences.
+To represent each \textbf{user}, I averaged the vectors of the items they rated in the training set, creating a content profile that reflects their preferences. While the vectors weren’t weighted by rating, the prevalence of 4 and 5-star ratings still skews the average toward preferred items.
 
 \subsection{Rating Prediction}
 To estimate a rating for a given user-item pair, I computed the cosine similarity between the user profile and the candidate item's TF-IDF vector. These similarity scores fall within the [0, 1] range. I then applied a simple linear transformation to map this value to the target [1, 5] rating range:
@@ -513,9 +513,10 @@ This week focused on combining collaborative filtering and content-based approac
 I experimented with three hybridization techniques:
 
 \textbf{1. Parallel Hybrid} \
-Both collaborative (KNNWithMeans) and content-based models independently ranked all items. Final rankings were obtained by aggregating inverse ranks of each item from both systems:
+The collaborative (KNNWithMeans) and content-based models independently ranked all items. 
+Each item's final score was computed as the sum of $k - \mathrm{rank}(i)$ from both models, and the top-$k$ items were selected accordingly.
 \[
-\mathrm{score}(i) = \frac{1}{\mathrm{rank}_{\mathrm{CF}}(i)} + \frac{1}{\mathrm{rank}_{\mathrm{CB}}(i)}
+\mathrm{score}(i) = (k - \mathrm{rank}_{\mathrm{CF}}(i)) + (k - \mathrm{rank}_{\mathrm{CB}}(i))
 \]
 
 \textbf{2. Switching Hybrid} \
