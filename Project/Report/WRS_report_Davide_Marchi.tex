@@ -365,7 +365,7 @@ This approach also helps to spread the upcoming reviews, while \textbf{TopPop} w
 \subsection{Analysis on the Effect of the Long-tail}
 To better understand how user and item activity impacts recommendation quality, I analyzed the performance of the models across different segments of the user and item distribution.
 
-Users were sorted by the number of ratings in the training set and divided into top 20\% and bottom 20\% groups. Then, I computed on the test set the Hit Rate for each group using the three recommenders (TopPop, KNNWithMeans, SVD). The results are reported in \autoref{tab:longtail-users}.
+I divided users into top and bottom 20\% based on rating count on the training set and computed Hit Rate on the test set for TopPop, KNNWithMeans, and SVD. The results are reported in \autoref{tab:longtail-users}.
 
 \begin{table}[H]
 \centering
@@ -414,7 +414,7 @@ I found that the average overlap in item history between the high-RR user and th
 
 Additionally, in cases with low RR, I noticed that many of the nearest neighbors had very different item preferences, which diluted the quality of the recommendations.
 
-\textbf{Conclusion:} For KNN-based models to be effective, the training data must have sufficient overlap between users. Sparse data significantly impairs performance and increases the chance of irrelevant neighbors.
+\textbf{Conclusion:} KNN models require sufficient user overlap. Sparse data leads to poor neighbor quality and weak predictions.
 
 \section{Week 9 [Feb 24 - Mar 2]: Text Representation}
 
@@ -423,11 +423,11 @@ This week focused on Natural Language Processing (NLP) techniques to extract use
 \subsection{Preprocessing}
 To reduce noise and focus on semantic content, I cropped all item descriptions to the first 1000 characters, a requirement that was already satisfied by 84.48\% of the items. Then, I applied the following preprocessing steps:
 \begin{enumerate}
-    \item \textbf{Tokenization and lowercasing:} the text is split into tokens and converted to lowercase.
-    \item \textbf{Punctuation removal:} tokens matching punctuation characters are removed.
-    \item \textbf{Stopword removal:} common words are removed using the NLTK English stopword list.
-    \item \textbf{Digit-containing token removal:} tokens that contain any numeric characters are excluded.
-    \item \textbf{Stemming:} remaining tokens are reduced to their root form using the SnowballStemmer.
+    \item \textbf{Tokenization and lowercasing}.
+    \item \textbf{Punctuation removal}.
+    \item \textbf{Stopword removal}.
+    \item \textbf{Digit-containing token removal}.
+    \item \textbf{Stemming} (using the SnowballStemmer).
 \end{enumerate}
 The vocabulary size was reduced from 51,296 to 27,243 tokens, significantly improving sparsity and reducing dimensionality.
 
@@ -439,7 +439,7 @@ To represent the descriptions in vector spaces two main representations were use
 \end{itemize}
 
 \subsection{Cosine Similarity Analysis}
-I selected a subset of 10 items and compared their pairwise similarities using each method. \autoref{fig:tfidf-w2v-similarity} shows the heatmaps.
+I selected a subset of 10 random items and compared their pairwise similarities using each method. \autoref{fig:tfidf-w2v-similarity} shows the heatmaps.
 
 \begin{figure}[H]
     \centering
@@ -448,20 +448,19 @@ I selected a subset of 10 items and compared their pairwise similarities using e
     \label{fig:tfidf-w2v-similarity}
 \end{figure}
 
-TF-IDF captures lexical overlap, while Word2Vec captures conceptual similarity. Word2Vec identifies related concepts even when specific words differ, while TF-IDF requires exact term matches.
+TF-IDF focuses on exact term overlap, while Word2Vec captures broader semantic similarity.
 
-The similarity patterns are consistent across both methods. Items that are different (like item 0) show low similarities with both approaches, while certain pairs (like items 7 and 3) exhibit high similarities in both cases. This consistency suggests that these patterns reflect genuine content relationships.
+Despite different mechanisms, both showed consistent patterns: low similarity for item 0 and high similarity between items 3 and 7, suggesting genuine content relationships.
 
-A key difference is that Word2Vec similarities are generally higher than TF-IDF. This occurs because Word2Vec captures broader semantic relationships, producing non-zero similarities even between somewhat different items. In contrast, TF-IDF only produces high similarities when items share the exact same terms, resulting in a sparser similarity matrix.
+Also, Word2Vec values were generally higher due to its ability to match conceptually related but lexically different terms, whereas TF-IDF produced a sparser similarity matrix.
 
 \subsection{Optional: BERT Embeddings}
-To explore the benefits of contextualized embeddings, I used BERT to encode item descriptions. Specifically, I employed the `bert-base-uncased` model and extracted the 768-dimensional vector corresponding to the [CLS] token from the last hidden layer of the model. This vector is commonly used to represent the semantic meaning of the entire input sequence.
 
-As with the other methods, I computed pairwise cosine similarities for the 10 items and plotted the results (see \autoref{fig:bert-similarity}). The heatmap shows similarities with the previous ones but overall is the most different between the three in terms of behavior.
+To explore contextualized embeddings, I used the `bert-base-uncased` model and extracted the 768-dimensional [CLS] token from the last hidden layer to represent each description. As with the other methods, I computed pairwise cosine similarities on a 10-item subset and visualized the results in \autoref{fig:bert-similarity}. The heatmap shows patterns similar to TF-IDF and Word2Vec but with notable differences, suggesting BERT captures distinct semantic relationships.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/bert_similarity.png}
+    \includegraphics[width=0.45\linewidth]{Images/bert_similarity.png}
     \caption{Cosine similarity between item vectors (BERT)}
     \label{fig:bert-similarity}
 \end{figure}
@@ -480,7 +479,7 @@ To estimate a rating for a given user-item pair, I computed the cosine similarit
 \[
 \mathrm{predicted\_rating} = 1 + 4 \cdot \mathrm{similarity}
 \]
-This prediction strategy was applied to the test set, and the RMSE was computed. The resulting RMSE was high, around \textbf{3.18}, due to the nature of the data: the vast majority of ratings in the dataset are 5-stars, while cosine similarities between most items are very small. As a result, linearly rescaled predictions skew toward lower values, failing to match the heavily skewed distribution of ground truth ratings.
+Applied to the test set, this strategy yielded a high RMSE of \textbf{3.18}, mainly because most ratings are 5-stars, while cosine similarities tend to be low. Consequently, the linear mapping underestimates scores, failing to capture the skewed rating distribution.
 
 \subsection{Top-N Recommendation Strategy}
 Rather than relying on the predicted ratings directly, I used the cosine similarities themselves to produce ranked recommendation lists. For each user, all unrated items were sorted by their similarity to the user's profile vector, and the top-10 most similar items were selected as recommendations.
@@ -562,7 +561,8 @@ To visually compare the models, I created a star plot (\autoref{fig:starplot}) u
     \label{fig:starplot}
 \end{figure}
 
-This visualization supports a deeper analysis of the strengths and weaknesses of each approach. TopPop performs best across most metrics but suffers from extremely limited coverage, as it only recommends a few popular items. The KNN-based collaborative filtering model offers a strong balance between high performance and coverage, making it appear to be the best overall performer. However, it struggles with cold-start scenarios, especially for items, which makes it difficult to integrate new products into the system without prior interaction data. For this reason, hybrid systems, though sometimes less impressive in terms of raw metrics, prove to be valuable by incorporating content-based signals. This enables better generalization, robustness, and the ability to recommend new or sparsely rated items.
+This visualization highlights key trade-offs among the models. TopPop achieves strong performance across most metrics but suffers from minimal coverage, as it only recommends a small set of popular items. KNN-based collaborative filtering provides the best balance between accuracy and diversity but struggles with cold-start items, making it difficult to recommend new products without prior interactions. Hybrid approaches, though their raw metrics may seem modest, integrate content signals to enhance robustness, address sparsity, and enable recommendations for unseen items.
+
 \bibliographystyle{acl_natbib}
 \bibliography{acl2021}
 
