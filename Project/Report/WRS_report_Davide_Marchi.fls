@@ -228,6 +228,11 @@ INPUT ./Images/bert_similarity.png
 INPUT ./Images/bert_similarity.png
 INPUT ./Images/bert_similarity.png
 INPUT ./Images/bert_similarity.png
+INPUT ./Images/starplot_hybrids.png
+INPUT ./Images/starplot_hybrids.png
+INPUT ./Images/starplot_hybrids.png
+INPUT ./Images/starplot_hybrids.png
+INPUT ./Images/starplot_hybrids.png
 INPUT ./WRS_report_Davide_Marchi.bbl
 INPUT ./WRS_report_Davide_Marchi.bbl
 INPUT WRS_report_Davide_Marchi.bbl
@@ -239,6 +244,7 @@ INPUT ./WRS_report_Davide_Marchi.out
 INPUT ./WRS_report_Davide_Marchi.out
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 INPUT c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb

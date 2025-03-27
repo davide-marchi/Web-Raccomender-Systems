@@ -1,26 +1,27 @@
 # Fdb version 4
-["bibtex WRS_report_Davide_Marchi"] 1743042473.26161 "WRS_report_Davide_Marchi.aux" "WRS_report_Davide_Marchi.bbl" "WRS_report_Davide_Marchi" 1743042476.36848 0
+["bibtex WRS_report_Davide_Marchi"] 1743045138.95596 "WRS_report_Davide_Marchi.aux" "WRS_report_Davide_Marchi.bbl" "WRS_report_Davide_Marchi" 1743045142.03635 0
   "./acl2021.bib" 1740966396 683 7ea8f0b08d5bf3fdb5539b86357f686f ""
   "./acl_natbib.bst" 1740752586 47585 c671f071a8f3957857acb307a7173505 ""
-  "WRS_report_Davide_Marchi.aux" 1743042475 2110 5049235cac239faf556660b144681f4b "pdflatex"
+  "WRS_report_Davide_Marchi.aux" 1743045140 2215 33b80e90e66d07e6ca8d36e2a3a31eb1 "pdflatex"
   (generated)
   "WRS_report_Davide_Marchi.bbl"
   "WRS_report_Davide_Marchi.blg"
   (rewritten before read)
-["pdflatex"] 1743042473.75596 "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" "WRS_report_Davide_Marchi.pdf" "WRS_report_Davide_Marchi" 1743042476.36927 0
+["pdflatex"] 1743045139.4463 "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" "WRS_report_Davide_Marchi.pdf" "WRS_report_Davide_Marchi" 1743045142.03692 0
   "/end" 1686762753 35 28d6814f309ea289f847c69cf91194c6 ""
   "Images/bert_similarity.png" 1743042238 70302 6eeb5e89231eaf4df33c24e78b6b3bb4 ""
   "Images/long_tail.png" 1740935517 47574 bb3f2d812b76b13d6327edfbcf391e83 ""
   "Images/rating_value_distribution.png" 1740934966 21832 686393bf1fa677c23f7de67706a0b925 ""
   "Images/ratings_per_item.png" 1740934922 23907 9e6cd6a7457f148821d0fde692510983 ""
   "Images/ratings_per_user.png" 1740934883 23383 39f8137de12b9f79a432a4443ff92b29 ""
+  "Images/starplot_hybrids.png" 1743043031 142015 879ab132bbe79857aede626ceab1eae9 ""
   "Images/tfidf_w2v_similarity.png" 1743035757 110954 99302ffdaf7ec28c78821f1716e0027c ""
-  "WRS_report_Davide_Marchi.aux" 1743042475 2110 5049235cac239faf556660b144681f4b "pdflatex"
-  "WRS_report_Davide_Marchi.bbl" 1743042473 343 00c0c1c3a8436a89d47f54633279bb73 "bibtex WRS_report_Davide_Marchi"
-  "WRS_report_Davide_Marchi.out" 1743042474 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "WRS_report_Davide_Marchi.tex" 1743042466 28142 9a0ccc504f4bfa8effa934f22256d687 ""
+  "WRS_report_Davide_Marchi.aux" 1743045140 2215 33b80e90e66d07e6ca8d36e2a3a31eb1 "pdflatex"
+  "WRS_report_Davide_Marchi.bbl" 1743045139 343 00c0c1c3a8436a89d47f54633279bb73 "bibtex WRS_report_Davide_Marchi"
+  "WRS_report_Davide_Marchi.out" 1743045140 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "WRS_report_Davide_Marchi.tex" 1743045132 30340 ac41fe5d8100ff602422cae9f22eb778 ""
   "acl2021.sty" 1740963681 22026 33457497d54e5727ba62103d186a8c5c ""
-  "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" 1743042466 28142 9a0ccc504f4bfa8effa934f22256d687 ""
+  "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" 1743045132 30340 ac41fe5d8100ff602422cae9f22eb778 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1739027753 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1739028126 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/adobe/helvetic/phvb.tfm" 1739028402 2300 14616918391efa49ac8b481a75fbdc1a ""
@@ -49,6 +50,7 @@
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm" 1739028822 520 7bb3abb160b19e0ed6ac404bb59052b7 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1739026672 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1739026672 35752 024fb6c41858982481f6968b5fc26508 ""
+  "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1739026672 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1739026672 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1739028402 35941 adef23a721dd8354a4a2bf4434f1c484 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1739030975 44729 fea0975e20ec51c992338362f05f1146 ""

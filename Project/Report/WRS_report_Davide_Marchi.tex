@@ -468,17 +468,20 @@ As with the other methods, I computed pairwise cosine similarities for the 10 it
 
 \section{Week 10 [Mar 3 - Mar 9]: Content-Based Recommender System}
 
-Using the representations from Week 9, I implemented a recommender system that ranks items based on similarity to a user's content profile.
+In this phase, I leveraged the item representations obtained from textual data to build a content-based recommender system. The objective was to predict user preferences based solely on item content, without relying on collaborative signals.
 
-\subsection{Item and User Representations}
-Each item was represented as a TF-IDF vector over both its title and description. The vectors were concatenated, resulting in a 41,550-dimensional feature space. Titles were preprocessed identically to descriptions.
+\subsection{Item and User Representation}
+Each item was encoded using TF-IDF vectors built from both the title and description fields. The preprocessing pipeline was the same as in Week 9, and the resulting vectors were concatenated into a single high-dimensional representation (41,550 features).
 
-Each user was represented as the mean vector of the items they rated in the training set.
+To represent each user, I computed the mean vector of all items they had rated in the training set. This approach creates a content-profile for each user, summarizing the textual characteristics of their preferences.
 
-\subsection{Prediction and Evaluation}
-I used cosine similarity between user and item vectors to rank unobserved items. The predicted rating was a linear transformation of similarity to the [1, 5] scale.
+\subsection{Prediction Method}
+Predictions were computed by taking the cosine similarity between a user vector and the TF-IDF vector of each candidate item. To transform this similarity into a rating score in the range [1, 5], I applied a linear rescaling based on observed min/max similarities in the training data.
 
-Evaluation metrics, using ratings $\geq 4$ in the test set, are presented in Table~\ref{tab:cb-results}.
+The top-10 recommended items were extracted by selecting those with the highest predicted scores that the user had not seen during training.
+
+\subsection{Evaluation}
+I evaluated the recommendations using standard metrics: Hit Rate, Precision@10, MAP@10, MRR@10, and Coverage. Items with test ratings $\geq 4$ were considered relevant.
 
 \begin{table}[H]
 \centering
@@ -494,20 +497,29 @@ Content-Based & 0.0121 & 0.0012 & 0.0007 & 0.0022 & 0.0485 \\
 \label{tab:cb-results}
 \end{table}
 
-The model struggled to make strong predictions, likely due to the weak correlation between text similarity and rating preferences. However, it provided valuable diversity and cold-start handling capabilities.
+The results show limited predictive power, likely due to the semantic gap between text-based similarity and actual user preferences. Still, the model increases item diversity and is particularly useful for cold-start items.
 
 \section{Week 11 [Mar 10 - Mar 16]: Hybrid Recommender Systems}
 
-To combine the strengths of collaborative and content-based methods, I implemented three hybrid strategies.
+This week focused on combining collaborative filtering and content-based approaches to build hybrid recommenders. The goal was to achieve better personalization, robustness, and item coverage.
 
-\subsection{Parallel Hybrid}
-Both models rank all items, and scores are aggregated by inverse rank sum. Results in Table~\ref{tab:hybrid-results}.
+\subsection{Implemented Hybrid Strategies}
+I experimented with three hybridization techniques:
 
-\subsection{Switching Hybrid}
-Users with $\geq 5$ ratings use KNN, others use content-based.
+\textbf{1. Parallel Hybrid} \
+Both collaborative (KNNWithMeans) and content-based models independently ranked all items. Final rankings were obtained by aggregating inverse ranks of each item from both systems:
+\[
+\mathrm{score}(i) = \frac{1}{\mathrm{rank}_{\mathrm{CF}}(i)} + \frac{1}{\mathrm{rank}_{\mathrm{CB}}(i)}
+\]
 
-\subsection{Pipeline Hybrid}
-Content-based model generates candidates (top-25), then re-ranked using KNN.
+\textbf{2. Switching Hybrid} \
+Users with more than 5 interactions used collaborative filtering, while users with fewer interactions were assigned content-based recommendations. This method adapts to the user's data availability.
+
+\textbf{3. Pipeline Hybrid} \
+For each user, the top-25 items most similar to their profile (from the content-based model) were selected as candidates. These were re-ranked using KNNWithMeans scores.
+
+\subsection{Evaluation and Comparison}
+All models were evaluated using the same metrics as before. The results are shown in Table~\ref{tab:hybrid-results}.
 
 \begin{table}[H]
 \centering
@@ -525,10 +537,22 @@ Pipeline Hybrid & 0.0194 & 0.0019 & 0.0031 & 0.0133 & 0.0486 \\
 \label{tab:hybrid-results}
 \end{table}
 
-\subsection{Discussion}
-The switching hybrid performed best overall, combining personalization with fallback for cold-start users. The parallel hybrid showed the highest coverage improvement, proving beneficial for diversity. Pipeline hybrid had moderate impact, possibly limited by content-only candidate generation.
+Among the three, the \textbf{Switching Hybrid} performed best across most metrics. It capitalized on the strengths of CF for well-known users while handling cold-starts with content-based fallback. The \textbf{Parallel Hybrid} had the highest coverage, benefiting from both sources of diversity. The \textbf{Pipeline Hybrid}, although conceptually appealing, performed worse, possibly due to candidate filtering removing relevant items.
 
-In conclusion, hybrid approaches allow for more robust and balanced recommendations by leveraging both collaborative signals and item content.
+\subsection{Visual Comparison with Star Plot}
+To visually compare the models, I created a star plot (\autoref{fig:starplot}) using the five evaluation metrics. Each axis represents one metric, and the area enclosed reflects overall performance.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Images/starplot_hybrids.png}
+    \caption{Star plot comparing hybrid recommender performance}
+    \label{fig:starplot}
+\end{figure}
+
+From the plot, the Switching Hybrid clearly dominates in most directions, showing strong performance balance. The Parallel Hybrid expands mostly on the Coverage axis, while the Pipeline Hybrid remains comparatively compact across all dimensions.
+
+This visualization supports the conclusion that combining strategies leads to more robust and flexible recommendation systems.
+
 
 
 \bibliographystyle{acl_natbib}

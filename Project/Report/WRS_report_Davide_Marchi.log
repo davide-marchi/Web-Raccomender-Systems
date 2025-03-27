@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  27 MAR 2025 03:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.8)  27 MAR 2025 04:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -454,14 +454,22 @@ File: Images/bert_similarity.png Graphic file (type png)
 Package pdftex.def Info: Images/bert_similarity.png  used on input line 464.
 (pdftex.def)             Requested size: 109.54306pt x 99.20445pt.
 
+Underfull \hbox (badness 1264) in paragraph at lines 484--485
+\OT1/ptm/m/n/10.95 (+20) met-rics: Hit Rate, Pre-ci-sion@10, MAP@10,
+ []
 
-[6 <./Images/tfidf_w2v_similarity.png> <./Images/bert_similarity.png>] (./WRS_report_Davide_Marchi.bbl)
 
 
+[6 <./Images/tfidf_w2v_similarity.png> <./Images/bert_similarity.png>]
 
-[7
+<Images/starplot_hybrids.png, id=115, 603.4545pt x 568.0422pt>
+File: Images/starplot_hybrids.png Graphic file (type png)
+<use Images/starplot_hybrids.png>
+Package pdftex.def Info: Images/starplot_hybrids.png  used on input line 547.
+(pdftex.def)             Requested size: 197.17616pt x 185.6083pt.
+(./WRS_report_Davide_Marchi.bbl)
 
-] (./WRS_report_Davide_Marchi.aux)
+[7 <./Images/starplot_hybrids.png>] (./WRS_report_Davide_Marchi.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -471,18 +479,18 @@ Package rerunfilecheck Info: File `WRS_report_Davide_Marchi.out' has not changed
  )
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 13464 strings out of 473201
- 215779 string characters out of 5720300
- 663994 words of memory out of 5000000
- 36258 multiletter control sequences out of 15000+600000
+ 13473 strings out of 473201
+ 216047 string characters out of 5720300
+ 664075 words of memory out of 5000000
+ 36266 multiletter control sequences out of 15000+600000
  586127 words of font info for 222 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,10n,93p,1153b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on WRS_report_Davide_Marchi.pdf (7 pages, 352887 bytes).
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on WRS_report_Davide_Marchi.pdf (7 pages, 481811 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 142 compressed objects within 2 object streams
- 65 named destinations out of 1000 (max. 500000)
- 34847 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 187 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 34852 words of extra memory for PDF output out of 35830 (max. 10000000)
 
