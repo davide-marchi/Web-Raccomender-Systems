@@ -421,19 +421,20 @@ Additionally, in cases with low RR, I noticed that many of the nearest neighbors
 This week focused on Natural Language Processing (NLP) techniques to extract useful representations from the item descriptions. These textual features serve as the foundation for building content-based and hybrid recommendation models.
 
 \subsection{Preprocessing}
-To reduce noise and focus on semantic content, I cropped all item descriptions to the first 1000 characters, which covered more than 84\% of items. Then, I applied the following preprocessing steps:
-\begin{itemize}
-    \item Tokenization using NLTK
-    \item Lowercasing
-    \item Stopword removal (NLTK stopword list)
-    \item Stemming (Snowball Stemmer)
-\end{itemize}
+To reduce noise and focus on semantic content, I cropped all item descriptions to the first 1000 characters, a requirement that was already satisfied by 84.48\% of the items. Then, I applied the following preprocessing steps:
+\begin{enumerate}
+    \item \textbf{Tokenization and lowercasing:} the text is split into tokens and converted to lowercase.
+    \item \textbf{Punctuation removal:} tokens matching punctuation characters are removed.
+    \item \textbf{Stopword removal:} common words are removed using the NLTK English stopword list.
+    \item \textbf{Digit-containing token removal:} tokens that contain any numeric characters are excluded.
+    \item \textbf{Stemming:} remaining tokens are reduced to their root form using the SnowballStemmer.
+\end{enumerate}
 The vocabulary size was reduced from 51,296 to 27,243 tokens, significantly improving sparsity and reducing dimensionality.
 
 \subsection{Vector Representations}
-Two main representations were used:
+To represent the descriptions in vector spaces two main representations were used:
 \begin{itemize}
-    \item \textbf{TF-IDF}: Sparse vectors built from the preprocessed descriptions using Scikit-learn. Final shape: $(\\mathrm{n\\ items}) \\times 27{,}243$.
+    \item \textbf{TF-IDF}: Sparse vectors built from the preprocessed descriptions using Scikit-learn. Final shape: $(\mathrm{n\ items}) \times 27{,}243$.
     \item \textbf{Word2Vec}: Pretrained Google News embeddings were averaged over tokens to produce 300-dimensional dense vectors.
 \end{itemize}
 
@@ -447,10 +448,23 @@ I selected a subset of 10 items and compared their pairwise similarities using e
     \label{fig:tfidf-w2v-similarity}
 \end{figure}
 
-TF-IDF captures lexical overlap, while Word2Vec captures conceptual similarity, even when word choice varies. The two spaces complement each other well.
+TF-IDF captures lexical overlap, while Word2Vec captures conceptual similarity. Word2Vec identifies related concepts even when specific words differ, while TF-IDF requires exact term matches.
+
+The similarity patterns are consistent across both methods. Items that are different (like item 0) show low similarities with both approaches, while certain pairs (like items 7 and 3) exhibit high similarities in both cases. This consistency suggests that these patterns reflect genuine content relationships.
+
+A key difference is that Word2Vec similarities are generally higher than TF-IDF. This occurs because Word2Vec captures broader semantic relationships, producing non-zero similarities even between somewhat different items. In contrast, TF-IDF only produces high similarities when items share the exact same terms, resulting in a sparser similarity matrix.
 
 \subsection{Optional: BERT Embeddings}
-To further explore semantic encoding, I used the [CLS] token representation from BERT. This produced 768-dimensional dense vectors. Similarity matrices from BERT embeddings showed better clustering for semantically close items, though the cost was significantly higher.
+To explore the benefits of contextualized embeddings, I used BERT to encode item descriptions. Specifically, I employed the `bert-base-uncased` model and extracted the 768-dimensional vector corresponding to the [CLS] token from the last hidden layer of the model. This vector is commonly used to represent the semantic meaning of the entire input sequence.
+
+As with the other methods, I computed pairwise cosine similarities for the 10 items and plotted the results (see \autoref{fig:bert-similarity}). The heatmap shows similarities with the previous ones but overall is the most different between the three in terms of behavior.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/bert_similarity.png}
+    \caption{Cosine similarity between item vectors (BERT)}
+    \label{fig:bert-similarity}
+\end{figure}
 
 \section{Week 10 [Mar 3 - Mar 9]: Content-Based Recommender System}
 
