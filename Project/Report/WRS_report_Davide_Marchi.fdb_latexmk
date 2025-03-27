@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex WRS_report_Davide_Marchi"] 1743065335.22164 "WRS_report_Davide_Marchi.aux" "WRS_report_Davide_Marchi.bbl" "WRS_report_Davide_Marchi" 1743065338.41804 0
+["bibtex WRS_report_Davide_Marchi"] 1743071163.36008 "WRS_report_Davide_Marchi.aux" "WRS_report_Davide_Marchi.bbl" "WRS_report_Davide_Marchi" 1743071354.69621 0
   "./acl2021.bib" 1740966396 683 7ea8f0b08d5bf3fdb5539b86357f686f ""
   "./acl_natbib.bst" 1740752586 47585 c671f071a8f3957857acb307a7173505 ""
-  "WRS_report_Davide_Marchi.aux" 1743065337 2288 c9a87dab35f00a9dcc240b8fcb9992bb "pdflatex"
+  "WRS_report_Davide_Marchi.aux" 1743071353 2286 c586a7c882e8d15ceb1d284d3a1671b2 "pdflatex"
   (generated)
   "WRS_report_Davide_Marchi.bbl"
   "WRS_report_Davide_Marchi.blg"
   (rewritten before read)
-["pdflatex"] 1743065335.75116 "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" "WRS_report_Davide_Marchi.pdf" "WRS_report_Davide_Marchi" 1743065338.4186 0
+["pdflatex"] 1743071351.92085 "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" "WRS_report_Davide_Marchi.pdf" "WRS_report_Davide_Marchi" 1743071354.6968 0
   "/end" 1686762753 35 28d6814f309ea289f847c69cf91194c6 ""
   "Images/bert_similarity.png" 1743042238 70302 6eeb5e89231eaf4df33c24e78b6b3bb4 ""
   "Images/long_tail.png" 1740935517 47574 bb3f2d812b76b13d6327edfbcf391e83 ""
@@ -16,12 +16,12 @@
   "Images/ratings_per_user.png" 1740934883 23383 39f8137de12b9f79a432a4443ff92b29 ""
   "Images/starplot_hybrids.png" 1743043031 142015 879ab132bbe79857aede626ceab1eae9 ""
   "Images/tfidf_w2v_similarity.png" 1743035757 110954 99302ffdaf7ec28c78821f1716e0027c ""
-  "WRS_report_Davide_Marchi.aux" 1743065337 2288 c9a87dab35f00a9dcc240b8fcb9992bb "pdflatex"
-  "WRS_report_Davide_Marchi.bbl" 1743065335 343 00c0c1c3a8436a89d47f54633279bb73 "bibtex WRS_report_Davide_Marchi"
-  "WRS_report_Davide_Marchi.out" 1743065336 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "WRS_report_Davide_Marchi.tex" 1743065331 30971 d6b071123e258d1517763a969f65e7cf ""
+  "WRS_report_Davide_Marchi.aux" 1743071353 2286 c586a7c882e8d15ceb1d284d3a1671b2 "pdflatex"
+  "WRS_report_Davide_Marchi.bbl" 1743071163 343 00c0c1c3a8436a89d47f54633279bb73 "bibtex WRS_report_Davide_Marchi"
+  "WRS_report_Davide_Marchi.out" 1743071352 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "WRS_report_Davide_Marchi.tex" 1743071351 30859 137fadc4e6ead81b3f49310e75eb0662 ""
   "acl2021.sty" 1740963681 22026 33457497d54e5727ba62103d186a8c5c ""
-  "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" 1743065331 30971 d6b071123e258d1517763a969f65e7cf ""
+  "c:/Users/david/Documents/University/Laurea Magistrale/Secondo anno/Web Raccomender Systems/Web-Raccomender-Systems/Project/Report/WRS_report_Davide_Marchi.tex" 1743071351 30859 137fadc4e6ead81b3f49310e75eb0662 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1739027753 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1739028126 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/adobe/helvetic/phvb.tfm" 1739028402 2300 14616918391efa49ac8b481a75fbdc1a ""

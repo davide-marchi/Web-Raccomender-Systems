@@ -535,20 +535,18 @@ All models were evaluated on the test set using the same metrics as before. The 
     \hline
     \textbf{Model} & \textbf{Hit Rate} & \textbf{Precision@10} & \textbf{MAP@10} & \textbf{MRR@10} & \textbf{Coverage} \\
     \hline
-    TopPop & 0.2369 & 0.0237 & 0.0184 & 0.0614 & 0.0198 \\
-    Random & 0.0078 & 0.0008 & 0.0004 & 0.0015 & 0.9253 \\
-    UserKNN (cosine) & 0.0680 & 0.0069 & 0.0060 & 0.0189 & 0.0956 \\
-    ItemKNN (cosine) & 0.0932 & 0.0092 & 0.0082 & 0.0273 & 0.1233 \\
-    SVD & 0.0845 & 0.0085 & 0.0076 & 0.0252 & 0.0386 \\
-    Content-Based & 0.0121 & 0.0012 & 0.0007 & 0.0022 & 0.0485 \\
-    Parallel Hybrid & 0.0583 & 0.0058 & 0.0048 & 0.0186 & 0.0944 \\
+    TopPop Baseline & 0.2573 & 0.0325 & 0.0339 & 0.1187 & 0.0196 \\
+    KNN Collaborative & 0.1092 & 0.0117 & 0.0084 & 0.0314 & 0.5874 \\
+    SVD Collaborative & 0.0825 & 0.0083 & 0.0061 & 0.0222 & 0.1179 \\
     Switching Hybrid & 0.0825 & 0.0083 & 0.0077 & 0.0262 & 0.0526 \\
-    Pipeline Hybrid & 0.0194 & 0.0019 & 0.0031 & 0.0133 & 0.0486 \\
+    Parallel Hybrid & 0.0583 & 0.0058 & 0.0048 & 0.0186 & 0.0944 \\
+    Pipeline Hybrid & 0.0194 & 0.0019 & 0.0031 & 0.0134 & 0.0486 \\
+    Content-Based & 0.0121 & 0.0012 & 0.0007 & 0.0022 & 0.0485 \\
     \hline
     \end{tabular}}
-    \caption{Comparison of all tested recommenders on the test set (ratings $\geq$ 4 considered relevant)}
+    \caption{Comparison of selected recommenders on the test set (ratings $\geq$ 4 considered relevant)}
     \label{tab:final-results}
-    \end{table}
+\end{table}
 
 Among the three hybrid systems, the \textbf{Switching Hybrid} performed best across most metrics. It capitalized on the strengths of CF for well-known users while handling cold-starts with content-based fallback. The \textbf{Parallel Hybrid} had the highest coverage, benefiting from both sources of diversity. The \textbf{Pipeline Hybrid}, although conceptually appealing, performed worse, possibly due to candidate filtering removing relevant items.
 
